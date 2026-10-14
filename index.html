@@ -59,7 +59,7 @@ nav.m a:hover{border-color:var(--gd)}
 .tools{position:sticky;top:70px;z-index:4;background:var(--bg);padding:10px 0;box-shadow:0 6px 0 rgba(184,58,22,.35)}
 .sw{position:relative}
 .sw .ic{position:absolute;left:16px;top:13px;color:var(--ink);width:20px;height:20px}
-.sw input{width:100%;min-height:46px;border:0;border-radius:14px;background:var(--cream);color:var(--ink);font:600 16px inherit;font-family:inherit;padding:6px 18px 6px 46px;margin-bottom:8px}
+.sw input{width:100%;min-height:46px;border:0;border-radius:14px;background:var(--cream);color:var(--ink);font-weight:600;font-size:16px;font-family:inherit;padding:6px 18px 6px 46px;margin-bottom:8px}
 .chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
 .chips button{flex:none;border:0;background:var(--yl);color:var(--ink);border-radius:10px;padding:2px 18px;min-height:38px;font-weight:700;font-size:16px;cursor:pointer;white-space:nowrap}
 .chips button.on{background:var(--rd);color:var(--cream)}
@@ -124,7 +124,7 @@ footer b{font:800 34px "Baloo Da 2",sans-serif;color:var(--gd)}
 .sum .tot{font:800 22px "Baloo Da 2",sans-serif;border-top:2px dashed rgba(255,250,240,.4);margin-top:6px;padding-top:6px}
 .fld{display:block;margin-bottom:10px}
 .fld span{display:block;font-weight:700;margin-bottom:2px}
-.fld input,.fld textarea{width:100%;border:0;border-radius:12px;padding:10px 14px;font:600 16px inherit;font-family:inherit;background:var(--cream);color:var(--ink)}
+.fld input,.fld textarea{width:100%;border:0;border-radius:12px;padding:10px 14px;font-weight:600;font-size:16px;font-family:inherit;background:var(--cream);color:var(--ink)}
 .zone{display:flex;gap:10px;flex-wrap:wrap}
 .zone label{display:flex;align-items:center;gap:6px;background:var(--cream);color:var(--ink);border-radius:12px;padding:8px 14px;font-weight:700;cursor:pointer}
 #toast{position:fixed;left:50%;top:84px;transform:translateX(-50%) translateY(-20px);background:var(--dk);color:var(--cream);border:2px solid var(--gd);border-radius:999px;padding:6px 20px;font-weight:700;opacity:0;pointer-events:none;transition:.25s;z-index:60}
@@ -233,6 +233,9 @@ footer b{font:800 34px "Baloo Da 2",sans-serif;color:var(--gd)}
 <g id="art-gur"><path d="M16 78l12-34h44l12 34z" fill="#8a4a14"/><rect x="16" y="78" width="68" height="20" rx="5" fill="#6e3a0e"/><path d="M34 52h12M52 52h14M30 64h30" stroke="#c98a4b" stroke-width="4" stroke-linecap="round"/></g>
 </defs></svg>
 
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
 <script>
 /* ===== SETTINGS ===== */
 var WA_NUMBER="8801903770516";            /* WhatsApp number, with country code, no + */
@@ -308,13 +311,13 @@ function wishView(){
   $("#wishL").innerHTML=wish.length?wish.map(function(id){var p=P(id);return '<div class="line"><div class="th">'+art(p)+'</div><div class="nm">'+esc(p.name)+'<small>'+esc(p.size)+' • '+tk(p.price)+'</small></div><button class="padd" data-a="'+id+'">Add</button><button class="heart on" data-w="'+id+'" aria-label="Remove">✕</button></div>'}).join(""):'<p class="empty">Nothing saved yet. Tap the heart on a product.</p>'}
 
 /* ===== PANELS ===== */
-function open(id){closeAll();$("#bk").classList.add("show");$(id).classList.add("show");document.body.style.overflow="hidden"}
+function openP(id){closeAll();$("#bk").classList.add("show");$(id).classList.add("show");document.body.style.overflow="hidden"}
 function closeAll(){document.querySelectorAll(".scr.show,.bk.show").forEach(function(e){e.classList.remove("show")});document.body.style.overflow=""}
 function detail(id){cur=P(id);dq=1;$("#dN").textContent=cur.name;$("#dI").innerHTML=art(cur);
   $("#dP").textContent=cur.size+" • "+tk(cur.price);$("#dD").textContent=cur.bn+". "+cur.desc;$("#dq").textContent=1;
-  var out=cur.stock===false;$("#dAdd").textContent=out?"Notify me":"Add to cart";$("#dBuy").style.display=out?"none":"";open("#detS")}
+  var out=cur.stock===false;$("#dAdd").textContent=out?"Notify me":"Add to cart";$("#dBuy").style.display=out?"none":"";openP("#detS")}
 function checkout(){
-  $("#f").hidden=false;$("#done").hidden=true;chkSum();open("#chkS")}
+  $("#f").hidden=false;$("#done").hidden=true;chkSum();openP("#chkS")}
 function chkSum(){var z=($("#f").zone.value)||"dhaka",s=ship(z);
   $("#chkSum").innerHTML='<div><span>Subtotal</span><span>'+tk(sub())+'</span></div><div><span>Delivery</span><span>'+(s?tk(s):"Free")+'</span></div><div class="tot"><span>Total</span><span>'+tk(sub()+s)+'</span></div>'}
 
@@ -331,8 +334,8 @@ document.addEventListener("click",function(e){
 $("#bk").onclick=closeAll;
 document.addEventListener("keydown",function(e){if(e.key==="Escape")closeAll()});
 $("#q").oninput=function(){term=this.value.trim().toLowerCase();render()};
-$("#cartBtn").onclick=$("#cbar-btn").onclick=function(){cartView();open("#cartS")};
-$("#wishBtn").onclick=function(){wishView();open("#wishS")};
+$("#cartBtn").onclick=$("#cbar-btn").onclick=function(){cartView();openP("#cartS")};
+$("#wishBtn").onclick=function(){wishView();openP("#wishS")};
 $("#toCheckout").onclick=checkout;
 $("#dm").onclick=function(){dq=Math.max(1,dq-1);$("#dq").textContent=dq};
 $("#dp").onclick=function(){dq++;$("#dq").textContent=dq};
@@ -353,7 +356,13 @@ $("#f").addEventListener("submit",function(e){
 document.querySelectorAll("a.whatsapp").forEach(function(a){a.href=wa("Hello RIZQ, I have a question.")});
 $("#callLink").href="tel:+"+WA_NUMBER;
 $("#rD").textContent=RATE.dhaka;$("#rO").textContent=RATE.outside;$("#yr").textContent=new Date().getFullYear();
-chips();render();save();
+function boot(){Object.keys(cart).forEach(function(k){if(!P(k))delete cart[k]});wish=wish.filter(function(i){return P(i)});chips();render();save()}
+var fc=window.RIZQ_FIREBASE;
+if(fc&&fc.apiKey&&fc.apiKey.indexOf("PASTE")!==0&&window.firebase){
+  firebase.initializeApp(fc);
+  firebase.firestore().collection("products").get().then(function(sn){var a=[];sn.forEach(function(d){var x=d.data();x.id=d.id;a.push(x)});
+    if(a.length){a.sort(function(m,n){return(m.order||0)-(n.order||0)});PRODUCTS=a}boot()}).catch(boot)
+}else boot();
 </script>
 </body>
 </html>

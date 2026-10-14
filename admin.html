@@ -1,201 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grihokona — Admin Panel</title>
-<meta name="robots" content="noindex, nofollow">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>RIZQ Admin</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@500;700;800&family=Hind+Siliguri:wght@400;600&display=swap">
+<style>
+:root{--bg:#ff7f23;--yl:#ffdb4d;--ink:#3b1a0a;--cream:#fff8f0;--rd:#b83a16;--dk:#3a1608}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font:500 16px/1.5 "Baloo Da 2","Hind Siliguri",sans-serif}
+[hidden]{display:none!important}
+.top{background:var(--dk);color:var(--yl);border-bottom:4px solid var(--yl);padding:10px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:5}
+.top b{font:800 26px "Baloo Da 2";letter-spacing:.04em}.top small{color:var(--cream);font-weight:600;margin-left:8px}
+.wrap{max-width:900px;margin:0 auto;padding:16px}
+.card{background:var(--cream);border-radius:20px;padding:18px;box-shadow:0 6px 0 rgba(184,58,22,.45)}
+.b{border:0;border-radius:12px;min-height:44px;padding:0 18px;font:800 16px "Baloo Da 2";cursor:pointer;background:var(--dk);color:var(--cream)}
+.b.y{background:var(--yl);color:var(--ink);box-shadow:0 4px 0 var(--rd)}.b.r{background:var(--rd)}.b.s{min-height:36px;padding:0 12px;font-size:14px}
+input,select,textarea{width:100%;border:2px solid #e8d5bf;border-radius:12px;padding:9px 12px;font:600 16px "Baloo Da 2","Hind Siliguri";background:#fff;color:var(--ink)}
+label{display:block;font-weight:700;margin-bottom:10px}label.ck{display:flex;gap:10px;align-items:center}label.ck input{width:20px;height:20px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bar{display:flex;gap:10px;margin:0 0 14px}.bar input{flex:1;border:0}
+.row{display:flex;align-items:center;gap:12px;background:var(--cream);border-radius:16px;padding:10px 12px;margin-bottom:10px}
+.row img,.row .ph{width:52px;height:52px;border-radius:50%;object-fit:cover;background:var(--yl);flex:none}
+.row .nm{flex:1;line-height:1.25;font-weight:700}.row small{display:block;font-weight:500}
+.out{color:var(--rd);font-weight:800}
+.err{background:#ffe1d6;color:var(--rd);border-radius:10px;padding:8px 12px;margin:0 0 10px;font-weight:700}
+.mod{position:fixed;inset:0;background:rgba(58,22,8,.7);z-index:20;overflow:auto;padding:16px}
+.mod .card{max-width:520px;margin:0 auto}
+.pv{display:flex;align-items:center;gap:12px;margin-bottom:10px}.pv img{width:72px;height:72px;border-radius:50%;object-fit:cover}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--dk);color:var(--cream);border:2px solid var(--yl);border-radius:999px;padding:6px 20px;font-weight:700;z-index:50;opacity:0;pointer-events:none;transition:.25s}#toast.on{opacity:1}
+</style></head><body>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<div class="wrap" id="login" style="max-width:380px;padding-top:12vh">
+  <div class="card"><h1 style="margin:0;font:800 40px 'Baloo Da 2';color:var(--rd)">RIZQ</h1><p style="margin:0 0 14px">Admin sign in</p>
+  <form id="lf"><label>Email<input type="email" name="e" required autocomplete="username"></label><label>Password<input type="password" name="p" required autocomplete="current-password"></label>
+  <p class="err" id="le" hidden></p><button class="b y" style="width:100%">Sign in</button></form></div>
+</div>
 
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="admin.css">
-</head>
-<body class="admin-body">
-
-<!-- ============ LOGIN SCREEN ============ -->
-<div class="admin-login" id="loginScreen">
-  <div class="admin-login-card">
-    <h1 class="admin-brand">Grihokona</h1>
-    <p class="admin-subtitle">Admin panel</p>
-    <form id="loginForm">
-      <label class="field">
-        <span>Email</span>
-        <input type="email" name="email" required autocomplete="username">
-      </label>
-      <label class="field">
-        <span>Password</span>
-        <input type="password" name="password" required autocomplete="current-password">
-      </label>
-      <p class="admin-error" id="loginError" hidden></p>
-      <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-    </form>
+<div id="dash" hidden>
+  <div class="top"><span><b>RIZQ</b><small>Admin</small></span><button class="b s" id="out">Sign out</button></div>
+  <div class="wrap">
+    <div class="bar"><input type="search" id="s" placeholder="Search products…"><button class="b y" id="add">+ Add product</button></div>
+    <div id="list"></div>
+    <div class="card" id="seedBox" hidden><b>No products saved yet.</b> The shop is showing the built-in list from index.html. Import it so you can edit it here.<br><br><button class="b y" id="seed">Import current products</button></div>
   </div>
 </div>
 
-<!-- ============ DASHBOARD ============ -->
-<div class="admin-dashboard" id="dashboard" hidden>
+<div class="mod" id="mod" hidden><div class="card">
+  <h2 id="mt" style="margin:0 0 12px;font:800 24px 'Baloo Da 2'">Add product</h2>
+  <form id="pf">
+    <label>Name (English)<input name="name" required placeholder="e.g. Khalisha Flower Honey"></label>
+    <label>Name (Bangla)<input name="bn" placeholder="খলিশা ফুলের মধু"></label>
+    <div class="two"><label>Category<select name="cat" id="cat"></select></label><label>Size<input name="size" required placeholder="500 g"></label></div>
+    <div class="two"><label>Price (৳)<input type="number" name="price" required min="0"></label><label>Old price (optional)<input type="number" name="old" min="0"></label></div>
+    <label>Badge (optional)<input name="tag" placeholder="Best seller, Fresh, Winter"></label>
+    <label>Description<textarea name="desc" rows="3"></textarea></label>
+    <label>Photo<input type="file" id="file" accept="image/*"></label>
+    <div class="pv" id="pv"></div>
+    <label class="ck"><input type="checkbox" name="stock" checked> In stock (untick to show “Notify me”)</label>
+    <p class="err" id="pe" hidden></p>
+    <div style="display:flex;gap:10px"><button type="button" class="b" id="cancel">Cancel</button><button class="b y" id="save" style="flex:1">Save product</button></div>
+  </form>
+</div></div>
+<div id="toast" role="status"></div>
 
-  <header class="admin-topbar">
-    <span class="admin-brand-sm">Grihokona <em>Admin</em></span>
-    <button class="btn btn-ghost btn-sm" id="logoutBtn">Sign out</button>
-  </header>
-
-  <main class="admin-main">
-    <section class="admin-card">
-      <h3 class="admin-card-title">Site branding</h3>
-      <p class="admin-card-sub">These appear in the header and homepage of your live site.</p>
-      <div class="branding-row">
-        <div class="branding-field">
-          <span class="field-label">Logo</span>
-          <div class="image-drop branding-drop" id="logoDrop">
-            <input type="file" id="logoInput" accept="image/*" hidden>
-            <p>Tap to choose a logo</p>
-          </div>
-          <div class="image-preview-row" id="logoPreviewRow"></div>
-        </div>
-        <div class="branding-field">
-          <span class="field-label">Homepage hero photo</span>
-          <div class="image-drop branding-drop" id="heroDrop">
-            <input type="file" id="heroInput" accept="image/*" hidden>
-            <p>Tap to choose a hero photo</p>
-          </div>
-          <div class="image-preview-row" id="heroPreviewRow"></div>
-        </div>
-      </div>
-      <p class="admin-error" id="brandingError" hidden></p>
-      <button type="button" class="btn btn-primary btn-sm" id="saveBrandingBtn">Save branding</button>
-    </section>
-
-    <section class="admin-card">
-      <h3 class="admin-card-title">Promo banners</h3>
-      <p class="admin-card-sub">The three colourful banners on your homepage. Add a photo, or leave it empty to keep the plain colour.</p>
-      <div id="promoEditor"></div>
-      <p class="admin-error" id="promoError" hidden></p>
-      <button type="button" class="btn btn-primary btn-sm" id="savePromosBtn">Save banners</button>
-    </section>
-
-    <div class="admin-toolbar">
-      <div class="search-box admin-search">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-        <input type="search" id="adminSearch" placeholder="Search products…">
-      </div>
-      <button class="btn btn-primary" id="addProductBtn">+ Add Product</button>
-    </div>
-
-    <div class="admin-table-wrap">
-      <table class="admin-table">
-        <thead>
-          <tr>
-            <th></th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Price</th>
-            <th>Stock</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody id="productTableBody">
-          <tr><td colspan="6" class="admin-empty">Loading products…</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </main>
-</div>
-
-<!-- ============ PRODUCT MODAL ============ -->
-<div class="modal" id="productModal" aria-hidden="true">
-  <div class="modal-card admin-modal-card">
-    <div class="drawer-head">
-      <h3 id="productModalTitle">Add product</h3>
-      <button class="icon-btn" id="closeProductModalBtn" aria-label="Close">✕</button>
-    </div>
-
-    <div class="checkout-step">
-      <form id="productForm">
-        <label class="field">
-          <span>Product name</span>
-          <input type="text" name="name" required placeholder="e.g. Ceramic Pour-Over Coffee Set">
-        </label>
-
-        <div class="field-row">
-          <label class="field">
-            <span>Price (৳)</span>
-            <input type="number" name="price" required min="0" step="1">
-          </label>
-          <label class="field">
-            <span>Old price (optional)</span>
-            <input type="number" name="oldPrice" min="0" step="1">
-          </label>
-        </div>
-
-        <div class="field-row">
-          <label class="field">
-            <span>Category</span>
-            <input type="text" name="category" required placeholder="e.g. Kitchen">
-          </label>
-          <label class="field">
-            <span>Stock quantity</span>
-            <input type="number" name="stock" required min="0" step="1">
-          </label>
-        </div>
-
-        <label class="field">
-          <span>Short description</span>
-          <textarea name="description" placeholder="One line, shown on the product card"></textarea>
-        </label>
-
-        <div class="field-row">
-          <label class="field">
-            <span>Rating (0–5, optional)</span>
-            <input type="number" name="rating" min="0" max="5" step="0.1" placeholder="e.g. 4.5">
-          </label>
-          <label class="field">
-            <span>Review count (optional)</span>
-            <input type="number" name="reviewCount" min="0" step="1" placeholder="e.g. 124">
-          </label>
-        </div>
-
-        <label class="field">
-          <span>Badge text (optional)</span>
-          <input type="text" name="badgeText" placeholder="e.g. Best Seller, Trending, Eco Friendly">
-        </label>
-
-        <label class="field checkbox-field">
-          <input type="checkbox" name="isNew">
-          <span>Mark as "New" on the storefront (used if badge text above is left blank)</span>
-        </label>
-
-        <label class="field">
-          <span>Product photos</span>
-          <div class="image-drop" id="imageDrop">
-            <input type="file" id="imageInput" accept="image/*" multiple hidden>
-            <p>Tap to choose photos, or drag & drop here</p>
-            <p class="image-drop-hint">First photo is the main card image. Add more for the gallery.</p>
-          </div>
-          <div class="image-preview-row" id="imagePreviewRow"></div>
-        </label>
-
-        <p class="admin-error" id="productFormError" hidden></p>
-        <div class="review-actions">
-          <button type="button" class="btn btn-ghost" id="cancelProductBtn">Cancel</button>
-          <button type="submit" class="btn btn-primary" id="saveProductBtn">Save product</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-<div class="overlay" id="adminOverlay"></div>
-<div class="toast" id="adminToast"></div>
-
-<!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
 <script src="firebase-config.js"></script>
-<script src="admin.js"></script>
-</body>
-</html>
+<script>
+var CATS=["Honey","Nuts","Mustard Oil","Akher Gur","Khejurer Gur"];
+var $=function(s){return document.querySelector(s)};
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function toast(m){var t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(function(){t.classList.remove("on")},2000)}
+var fc=window.RIZQ_FIREBASE,cl=window.RIZQ_CLOUDINARY||{};
+if(!fc||fc.apiKey.indexOf("PASTE")===0){$("#le").hidden=false;$("#le").textContent="Firebase is not set up yet. Fill in firebase-config.js (see ADMIN-SETUP.md).";throw new Error("no config")}
+firebase.initializeApp(fc);
+var auth=firebase.auth(),col=firebase.firestore().collection("products"),items=[],eid=null,img="";
+$("#cat").innerHTML=CATS.map(function(c){return"<option>"+c+"</option>"}).join("");
+
+auth.onAuthStateChanged(function(u){$("#login").hidden=!!u;$("#dash").hidden=!u;if(u)load()});
+$("#lf").onsubmit=function(e){e.preventDefault();var f=this;$("#le").hidden=true;
+  auth.signInWithEmailAndPassword(f.e.value.trim(),f.p.value).catch(function(){$("#le").hidden=false;$("#le").textContent="Wrong email or password."})};
+$("#out").onclick=function(){auth.signOut()};
+
+function load(){col.get().then(function(sn){items=[];sn.forEach(function(d){var x=d.data();x.id=d.id;items.push(x)});
+  items.sort(function(a,b){return(a.order||0)-(b.order||0)});$("#seedBox").hidden=items.length>0;draw()}).catch(function(){toast("Could not load. Check Firestore rules.")})}
+function draw(){var q=$("#s").value.trim().toLowerCase();
+  var l=items.filter(function(p){return((p.name||"")+(p.bn||"")+(p.cat||"")).toLowerCase().indexOf(q)>-1});
+  $("#list").innerHTML=l.map(function(p){return'<div class="row">'+(p.img?'<img src="'+esc(p.img)+'" alt="">':'<span class="ph"></span>')+
+   '<div class="nm">'+esc(p.name)+'<small>'+esc(p.cat)+' • '+esc(p.size)+' • ৳'+esc(p.price)+(p.stock===false?' • <span class="out">Out of stock</span>':'')+'</small></div>'+
+   '<button class="b s" data-e="'+p.id+'">Edit</button><button class="b s r" data-d="'+p.id+'">Delete</button></div>'}).join("")}
+$("#s").oninput=draw;
+$("#list").onclick=function(e){var t=e.target;
+  if(t.dataset.e)openForm(t.dataset.e);
+  else if(t.dataset.d){var p=items.filter(function(x){return x.id===t.dataset.d})[0];
+    if(confirm("Delete "+p.name+" ("+p.size+")?"))col.doc(p.id).delete().then(function(){toast("Deleted");load()})}};
+
+function openForm(id){eid=id||null;var f=$("#pf"),p=id?items.filter(function(x){return x.id===id})[0]:{};
+  f.reset();$("#mt").textContent=id?"Edit product":"Add product";
+  ["name","bn","size","price","old","tag","desc"].forEach(function(k){f[k].value=p[k]==null?"":p[k]});
+  f.cat.value=p.cat||CATS[0];f.stock.checked=p.stock!==false;img=p.img||"";pv();$("#pe").hidden=true;$("#mod").hidden=false}
+function pv(){$("#pv").innerHTML=img?'<img src="'+esc(img)+'" alt=""><button type="button" class="b s r" id="rmImg">Remove photo</button>':""}
+$("#pv").onclick=function(e){if(e.target.id==="rmImg"){img="";pv()}};
+$("#add").onclick=function(){openForm()};
+$("#cancel").onclick=function(){$("#mod").hidden=true};
+
+$("#file").onchange=function(){var fl=this.files[0];if(!fl)return;
+  if(!cl.cloud||cl.cloud.indexOf("PASTE")===0){$("#pe").hidden=false;$("#pe").textContent="Cloudinary is not set up. Fill in firebase-config.js.";return}
+  var fd=new FormData();fd.append("file",fl);fd.append("upload_preset",cl.preset);$("#save").disabled=true;toast("Uploading photo…");
+  fetch("https://api.cloudinary.com/v1_1/"+cl.cloud+"/image/upload",{method:"POST",body:fd}).then(function(r){return r.json()}).then(function(j){
+    if(!j.secure_url)throw 0;img=j.secure_url.replace("/upload/","/upload/c_fill,w_600,h_600,q_auto,f_auto/");pv();toast("Photo ready")})
+  .catch(function(){$("#pe").hidden=false;$("#pe").textContent="Photo upload failed. Check cloud name and unsigned preset."})
+  .then(function(){$("#save").disabled=false})};
+
+$("#pf").onsubmit=function(e){e.preventDefault();var f=this,old=eid?items.filter(function(x){return x.id===eid})[0]:null;
+  var d={name:f.name.value.trim(),bn:f.bn.value.trim(),cat:f.cat.value,size:f.size.value.trim(),price:Number(f.price.value),
+    old:f.old.value?Number(f.old.value):null,tag:f.tag.value.trim(),desc:f.desc.value.trim(),img:img,stock:f.stock.checked,order:old?(old.order||0):Date.now()};
+  $("#save").disabled=true;
+  (eid?col.doc(eid).set(d):col.add(d)).then(function(){$("#mod").hidden=true;toast("Saved");load()})
+  .catch(function(){$("#pe").hidden=false;$("#pe").textContent="Could not save. Check you are signed in and Firestore rules are published."})
+  .then(function(){$("#save").disabled=false})};
+
+$("#seed").onclick=function(){this.disabled=true;
+  fetch("index.html").then(function(r){return r.text()}).then(function(t){
+    var m=t.match(/var PRODUCTS=(\[[\s\S]*?\n\]);/),a=(new Function("return "+m[1]))(),b=firebase.firestore().batch();
+    a.forEach(function(p,i){var id=p.id;delete p.id;p.order=i+1;p.old=p.old||null;p.tag=p.tag||"";p.stock=p.stock!==false;b.set(col.doc(id),p)});
+    return b.commit()}).then(function(){toast("Imported");load()}).catch(function(){toast("Import failed")})};
+</script></body></html>
