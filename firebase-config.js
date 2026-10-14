@@ -8,4 +8,4 @@ window.RIZQ_FIREBASE = {
   messagingSenderId: "402885589447",
   appId: "1:402885589447:web:b49e83a2c6be145f5c41e2"
 };
-window.RIZQ_CLOUDINARY = { cloud: "cbqaeley", preset: "grihokona_products" };
+window.RIZQ_CLOUDINARY = { cloud: "cbqaeley", preset: "RIZQ Product" };
