@@ -1,428 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grihokona — Home & Lifestyle Products, Delivered Across Bangladesh</title>
-<meta name="description" content="Shop home and lifestyle products from Grihokona. Cash on delivery, anywhere in Bangladesh.">
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="Grihokona — Home & Lifestyle Products">
-<meta property="og:description" content="Better living, stylish spaces, everyday essentials — delivered across Bangladesh. Cash on delivery available.">
-<meta property="og:image" content="images/og-cover.jpg">
-<meta property="og:url" content="https://your-username.github.io/your-repo/">
-<meta name="twitter:card" content="summary_large_image">
-
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛍️</text></svg>">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
-
-<!-- Facebook Pixel: replace YOUR_PIXEL_ID below with your real Pixel ID -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', 'YOUR_PIXEL_ID');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
-/></noscript>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RIZQ | রিজক — Honey, Nuts, Mustard Oil & Gur, Delivered Across Bangladesh</title>
+<meta name="description" content="RIZQ: pure honey, nuts, kachi ghani mustard oil, akher gur and khejurer gur. Cash on delivery across Bangladesh. Order on WhatsApp.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%233a1608%22/><path d=%22M30 80V20h22a17 17 0 0 1 0 34H30M52 54l20 26%22 fill=%22none%22 stroke=%22%23ffdb4d%22 stroke-width=%2214%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@500;600;700;800&family=Hind+Siliguri:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#ff7f23;--yl:#ffdb4d;--gd:#ffdb4d;--ink:#3b1a0a;--cream:#fff8f0;--rd:#b83a16;--dk:#3a1608}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:150px}
+body{margin:0;color:var(--cream);font:500 17px/1.6 "Baloo Da 2","Hind Siliguri",system-ui,sans-serif;background-color:var(--bg);background-image:linear-gradient(rgba(255,255,255,.12) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,.12) 2px,transparent 2px);background-size:200px 200px;overflow-x:hidden}
+a{color:inherit}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--gd);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+.ic{width:1.15em;height:1.15em;vertical-align:-.2em;flex:none}
+header.top{position:sticky;top:0;z-index:5;background:var(--dk);border-bottom:4px solid var(--gd)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;height:70px;gap:12px;max-width:1200px}
+.logo{display:inline-flex;align-items:center;color:var(--gd);text-decoration:none}
+.logo svg{height:50px;width:auto;display:block}
+footer .logo svg{height:64px;margin-bottom:6px}
+nav.m{display:flex;gap:26px}
+nav.m a{font-weight:600;text-decoration:none;padding:4px 0;border-bottom:3px solid transparent}
+nav.m a:hover{border-color:var(--gd)}
+@media(max-width:720px){nav.m{display:none}}
+.hd{display:flex;gap:4px}
+.ib{position:relative;background:none;border:0;color:var(--cream);cursor:pointer;min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+.ib .ic{width:24px;height:24px}
+.ib sup{position:absolute;right:2px;top:4px;background:var(--gd);color:var(--ink);border-radius:999px;font-size:11px;min-width:18px;line-height:18px;text-align:center;font-weight:800}
+.ib sup:empty{display:none}
+.notice{background:var(--gd);color:var(--ink);text-align:center;padding:6px 20px;font-weight:700}
+.cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:14px;text-decoration:none;cursor:pointer;font-weight:800}
+.cta{background:var(--gd);color:var(--ink);border:0;min-height:50px;padding:0 26px;font-size:18px;box-shadow:0 5px 0 var(--rd);transition:transform .1s,box-shadow .1s}
+.cta:active{transform:translateY(3px);box-shadow:0 2px 0 var(--rd)}
+.btn{min-height:44px;padding:0 20px;font-size:16px;border:2px solid var(--cream);background:rgba(255,255,255,.16);color:var(--cream)}
+.btn.p{background:var(--gd);color:var(--ink);border-color:var(--gd)}
+.hero{position:relative;overflow:hidden;padding:52px 0 150px;text-align:center}
+.chip{display:inline-block;background:var(--yl);color:var(--ink);border-radius:10px;padding:2px 22px;font-weight:700;font-size:clamp(18px,3vw,26px);margin-bottom:6px}
+.hero h1{margin:0;font:800 clamp(90px,24vw,240px)/.9 "Baloo Da 2",sans-serif;letter-spacing:.01em}
+.bn{font:700 clamp(22px,4vw,38px) "Hind Siliguri",sans-serif;margin:6px 0}
+.tg2{max-width:30em;margin:8px auto 22px}
+.btns{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+.ground{position:absolute;left:-10%;right:-10%;bottom:-130px;height:220px;background:var(--rd);border-radius:50% 50% 0 0}
+.hart{position:absolute;pointer-events:none;z-index:2}
+.hart svg{width:100%;height:auto;display:block;overflow:visible}
+.ha{left:-60px;bottom:30px;width:min(40vw,360px);transform:rotate(-8deg)}
+.hb{right:-60px;bottom:20px;width:min(40vw,360px);transform:rotate(7deg)}
+.hc{left:3%;top:26px;width:min(20vw,170px);transform:rotate(-14deg)}
+.hd2{right:3%;top:30px;width:min(18vw,150px);transform:rotate(16deg)}
+.spk{position:absolute;z-index:1;width:46px;height:46px}
+.s1{right:12%;top:34%}.s2{left:10%;bottom:30%;width:56px;height:56px}.s3{left:30%;top:10%;width:30px;height:30px}
+.sq{position:absolute;z-index:1;width:110px}
+.q1{left:22%;top:12%}.q2{right:18%;top:14%;transform:scaleX(-1)}
+@media(max-width:720px){.sq,.s2{display:none}.hero{padding:40px 0 170px}.ha{left:-40px;width:56vw}.hb{right:-40px;width:54vw}.hc{width:26vw;left:-10px;top:-4px}.hd2{width:24vw}.sq{width:70px}}
+.hero .wrap{position:relative;z-index:2}
+.tools{position:sticky;top:70px;z-index:4;background:var(--bg);padding:10px 0;box-shadow:0 6px 0 rgba(184,58,22,.35)}
+.sw{position:relative}
+.sw .ic{position:absolute;left:16px;top:13px;color:var(--ink);width:20px;height:20px}
+.sw input{width:100%;min-height:46px;border:0;border-radius:14px;background:var(--cream);color:var(--ink);font:600 16px inherit;font-family:inherit;padding:6px 18px 6px 46px;margin-bottom:8px}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.chips button{flex:none;border:0;background:var(--yl);color:var(--ink);border-radius:10px;padding:2px 18px;min-height:38px;font-weight:700;font-size:16px;cursor:pointer;white-space:nowrap}
+.chips button.on{background:var(--rd);color:var(--cream)}
+.ttl{font:800 clamp(40px,8vw,84px)/1 "Baloo Da 2",sans-serif;margin:0 0 6px}
+.sec{padding:56px 0 8px}
+.cat h3{display:flex;align-items:center;gap:14px;font:800 clamp(30px,5vw,52px)/1 "Baloo Da 2",sans-serif;margin:44px 0 24px}
+.cat h3:after{content:"";flex:1;border-top:4px dashed rgba(255,250,240,.6)}
+.tg{display:grid;gap:36px 16px;grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.tg{grid-template-columns:repeat(2,1fr)}}
+.tile{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+.tp{width:100%;max-width:200px;aspect-ratio:1;cursor:pointer;border-radius:50%;overflow:hidden;background:var(--yl);border:5px solid var(--cream);box-shadow:0 10px 0 rgba(184,58,22,.45);transition:transform .3s;padding:0}
+.tp:hover{transform:rotate(-4deg) scale(1.05)}
+.tp img,.tp svg{width:100%;height:100%;object-fit:cover;display:block}
+.lab{display:inline-block;background:var(--yl);color:var(--ink);border-radius:9px;padding:0 14px;font-weight:700;font-size:clamp(15px,2vw,19px);cursor:pointer;line-height:1.5;margin-top:6px}
+.sub{font-size:14px;opacity:.95}
+.pz{font:800 22px "Baloo Da 2",sans-serif}
+.pz s{font-size:14px;opacity:.7;margin-left:4px;font-weight:600}
+.row{display:flex;align-items:center;gap:8px}
+.padd{display:inline-flex;align-items:center;gap:6px;background:var(--dk);color:var(--cream);border:0;border-radius:999px;min-height:38px;padding:0 20px;font-weight:700;font-size:15px;cursor:pointer;box-shadow:0 4px 0 rgba(0,0,0,.25)}
+.heart{background:var(--cream);color:var(--rd);border:0;border-radius:50%;width:38px;height:38px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+.heart.on{background:var(--rd);color:var(--cream)}
+.heart.on svg{fill:currentColor}
+.hit{position:absolute;top:-4px;left:50%;transform:translateX(-86px);z-index:2;background:var(--rd);color:var(--cream);border-radius:8px;padding:0 12px;font-weight:800;font-size:14px;rotate:-8deg}
+.empty{text-align:center;padding:40px 0;font-weight:700}
+.card.y{background:var(--gd);color:var(--ink);border-radius:28px;padding:26px 28px;box-shadow:0 8px 0 rgba(184,58,22,.5)}
+.why{display:grid;gap:18px;grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.why{grid-template-columns:repeat(2,1fr)}}
+.why .card.y{padding:20px}
+.why h4{margin:0 0 4px;font:800 21px "Baloo Da 2",sans-serif}
+.why p{margin:0;font-size:15px;font-weight:600}
+.two{display:grid;gap:24px;grid-template-columns:1fr 1fr}
+@media(max-width:800px){.two{grid-template-columns:1fr}}
+.card.y p{margin:0 0 8px;font-weight:600}
+details{background:var(--cream);color:var(--ink);border-radius:16px;padding:10px 18px;margin-bottom:10px}
+summary{font-weight:800;cursor:pointer;min-height:32px}
+details p{margin:6px 0 4px;font-weight:500}
+footer{margin-top:70px;background:var(--rd);padding:46px 0 130px;border-radius:50% 50% 0 0/46px 46px 0 0;text-align:center;font-weight:600}
+footer b{font:800 34px "Baloo Da 2",sans-serif;color:var(--gd)}
+#cbar{position:fixed;left:16px;right:16px;bottom:14px;z-index:8;display:flex;justify-content:center;pointer-events:none}
+#cbar .cb{pointer-events:auto;display:none;align-items:center;gap:12px;width:100%;max-width:520px;background:var(--dk);border:2px solid var(--gd);border-radius:999px;padding:8px 8px 8px 20px;box-shadow:0 10px 0 rgba(0,0,0,.2);cursor:pointer;color:var(--cream);font:inherit;text-align:left}
+#cbar .cb.show{display:flex}
+.cb .ct{flex:1;line-height:1.2}.cb small{opacity:.8;display:block}
+.cb .cta{min-height:40px;padding:0 18px;border-radius:999px;font-size:15px;box-shadow:none}
+.bk{position:fixed;inset:0;background:rgba(58,22,8,.65);z-index:30;display:none}
+.scr{position:fixed;inset:0;z-index:31;overflow:auto;background-color:var(--bg);background-image:linear-gradient(rgba(255,255,255,.12) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,.12) 2px,transparent 2px);background-size:120px 120px;padding:16px 20px 24px;display:none;flex-direction:column;gap:14px}
+.bk.show{display:block}.scr.show{display:flex}
+@media(min-width:600px){.scr{inset:4vh auto 4vh 50%;width:440px;margin-left:-220px;border-radius:32px;border:4px solid var(--dk);box-shadow:0 30px 80px rgba(0,0,0,.5)}}
+.stop{display:flex;align-items:center;justify-content:space-between}
+.stitle{font:800 24px "Baloo Da 2",sans-serif}
+.sbtn{width:42px;height:42px;border-radius:50%;border:0;background:var(--cream);color:var(--ink);cursor:pointer;font-size:18px;font-weight:800}
+.dimg{width:210px;height:210px;flex:none;margin:4px auto 0;border-radius:50%;overflow:hidden;background:var(--yl);box-shadow:0 10px 0 rgba(184,58,22,.5);border:5px solid var(--cream)}
+.dimg img,.dimg svg{width:100%;height:100%;object-fit:cover;display:block}
+.line{display:flex;align-items:center;gap:12px;background:var(--cream);color:var(--ink);border-radius:18px;padding:10px 12px}
+.line .th{width:52px;height:52px;border-radius:50%;overflow:hidden;background:var(--yl);flex:none}
+.line .th svg,.line .th img{width:100%;height:100%;object-fit:cover}
+.line .nm{flex:1;line-height:1.25;font-weight:700}.line .nm small{font-weight:500;display:block}
+.qty{display:inline-flex;align-items:center;gap:8px;background:var(--yl);border-radius:999px;padding:2px}
+.qty button{width:34px;height:34px;border-radius:50%;border:0;background:var(--dk);color:var(--cream);font-size:18px;cursor:pointer;font-weight:800}
+.qty span{min-width:20px;text-align:center;font-weight:800}
+.sum{background:var(--dk);border-radius:20px;padding:14px 16px}
+.sum div{display:flex;justify-content:space-between;padding:2px 0}
+.sum .tot{font:800 22px "Baloo Da 2",sans-serif;border-top:2px dashed rgba(255,250,240,.4);margin-top:6px;padding-top:6px}
+.fld{display:block;margin-bottom:10px}
+.fld span{display:block;font-weight:700;margin-bottom:2px}
+.fld input,.fld textarea{width:100%;border:0;border-radius:12px;padding:10px 14px;font:600 16px inherit;font-family:inherit;background:var(--cream);color:var(--ink)}
+.zone{display:flex;gap:10px;flex-wrap:wrap}
+.zone label{display:flex;align-items:center;gap:6px;background:var(--cream);color:var(--ink);border-radius:12px;padding:8px 14px;font-weight:700;cursor:pointer}
+#toast{position:fixed;left:50%;top:84px;transform:translateX(-50%) translateY(-20px);background:var(--dk);color:var(--cream);border:2px solid var(--gd);border-radius:999px;padding:6px 20px;font-weight:700;opacity:0;pointer-events:none;transition:.25s;z-index:60}
+#toast.show{opacity:1;transform:translateX(-50%)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
-
-<!-- ============ HEADER ============ -->
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="#home" class="brand">
-      <img src="images/logo.svg" alt="Grihokona" class="brand-logo" id="brandLogoImg" onerror="this.style.display='none'; document.getElementById('brandNameText').style.display='inline';">
-      <span class="brand-name" id="brandNameText" style="display:none;">Grihokona</span>
-    </a>
-    <nav class="main-nav">
-      <a href="#shop">Shop</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#faq">FAQ</a>
-      <a href="#delivery">Delivery</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="header-icons">
-      <button class="cart-btn" id="headerWishlistBtn" aria-label="Open wishlist">
-        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7.5-4.6-10-9.2C.4 8.4 2 4.5 5.8 4a5 5 0 0 1 6.2 3 5 5 0 0 1 6.2-3c3.8.5 5.4 4.4 3.8 7.8C19.5 16.4 12 21 12 21Z"/></svg>
-        <span class="cart-count" id="wishlistCount">0</span>
-      </button>
-      <button class="cart-btn" id="headerCartBtn" aria-label="Open cart">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1.5"/><circle cx="18" cy="21" r="1.5"/><path d="M2 3h2l2.6 12.4a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L21 7H6"/></svg>
-        <span class="cart-count" id="cartCount">0</span>
-      </button>
-    </div>
+<header class="top"><div class="wrap">
+  <a href="#home" class="logo" aria-label="RIZQ home"><svg viewBox="0 0 285 105" role="img" aria-label="RIZQ"><use href="#logo"/></svg></a>
+  <nav class="m"><a href="#shop">Shop</a><a href="#why">Why RIZQ</a><a href="#delivery">Delivery</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></nav>
+  <div class="hd">
+    <button class="ib" id="wishBtn" aria-label="Saved items"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.2C.4 8.4 2 4.5 5.8 4a5 5 0 0 1 6.2 3 5 5 0 0 1 6.2-3c3.8.5 5.4 4.4 3.8 7.8C19.5 16.4 12 21 12 21Z"/></svg><sup id="wc"></sup></button>
+    <button class="ib" id="cartBtn" aria-label="Open cart"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1.5"/><circle cx="18" cy="21" r="1.5"/><path d="M2 3h2l2.6 12.4a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L21 7H6"/></svg><sup id="cc"></sup></button>
   </div>
-</header>
+</div></header>
+<div class="notice">Cash on delivery all over Bangladesh. Free delivery over ৳1500.</div>
 
 <main>
+<section class="hero" id="home">
+  <div class="hart ha"><svg viewBox="-10 -4 120 128" aria-hidden="true"><use href="#art-honey"/></svg></div>
+  <div class="hart hb"><svg viewBox="-10 -4 120 128" aria-hidden="true"><use href="#art-oil"/></svg></div>
+  <div class="hart hc"><svg viewBox="-10 -4 120 128" aria-hidden="true"><use href="#art-nut"/></svg></div>
+  <div class="hart hd2"><svg viewBox="-10 -4 120 128" aria-hidden="true"><use href="#art-gur"/></svg></div>
+  <svg class="spk s1" viewBox="0 0 40 40" aria-hidden="true"><use href="#spk"/></svg><svg class="spk s2" viewBox="0 0 40 40" aria-hidden="true"><use href="#spk"/></svg><svg class="spk s3" viewBox="0 0 40 40" aria-hidden="true"><use href="#spk"/></svg>
+  <svg class="sq q1" viewBox="0 0 120 40" aria-hidden="true"><use href="#sq"/></svg><svg class="sq q2" viewBox="0 0 120 40" aria-hidden="true"><use href="#sq"/></svg>
+  <div class="wrap">
+    <span class="chip">খাঁটি • Pure • Natural</span>
+    <h1>RIZQ</h1>
+    <p class="bn">মধু • বাদাম • সরিষার তেল • আখ ও খেজুরের গুড়</p>
+    <p class="tg2">Honey, nuts, kachi ghani mustard oil and traditional gur. Sourced straight from producers, packed clean, sent to your door.</p>
+    <div class="btns"><a href="#shop" class="cta">Shop now</a><a class="btn whatsapp" href="#" target="_blank" rel="noopener">Message on WhatsApp</a></div>
+  </div>
+  <div class="ground"></div>
+</section>
 
-  <!-- ============ HERO ============ -->
-  <section class="hero" id="home">
-    <div class="hero-media-bg" id="heroMediaBg">
-      <img src="images/hero.svg" alt="Grihokona home and lifestyle products" id="heroImg" onerror="this.parentElement.classList.add('img-fallback')">
-      <div class="hero-shade"></div>
-      <div class="container hero-content">
-        <div class="hero-copy">
-          <p class="hero-kicker">Make your home more beautiful</p>
-          <h1>Home & Lifestyle Products</h1>
-          <p class="hero-sub">Grihokona brings you home and lifestyle essentials — sourced for quality, priced fairly, delivered across Bangladesh.</p>
-          <div class="hero-bullets">
-            <span>Better Living</span><span>Stylish Spaces</span><span>Everyday Essentials</span>
-          </div>
-          <div class="hero-actions">
-            <a href="#shop" class="btn btn-primary">Shop Now</a>
-            <a href="https://wa.me/8801903770516" target="_blank" rel="noopener" class="btn btn-ghost whatsapp-link">Message us on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="tools" id="shop"><div class="wrap">
+  <div class="sw"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input type="search" id="q" placeholder="Search honey, almond, gur…" aria-label="Search products"></div>
+  <div class="chips" id="chips"></div>
+</div></div>
 
-  <!-- ============ CATEGORY TILES ============ -->
-  <section class="categories" aria-label="Product categories">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Shop by category</h2>
-        </div>
-      </div>
-      <div class="cat-scroll" id="categoryScroll">
-        <!-- category tiles injected by script.js -->
-      </div>
-    </div>
-  </section>
+<section class="wrap sec" style="padding-top:20px"><div id="grid" class="cat"></div></section>
 
-  <!-- ============ SEARCH ============ -->
-  <section class="categories" style="padding-top:4px;">
-    <div class="container">
-      <div class="shop-controls">
-        <div></div>
-        <div class="search-box">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-          <input type="search" id="productSearch" placeholder="Search products…" aria-label="Search products">
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="wrap sec" id="why">
+  <h2 class="ttl">Why RIZQ</h2>
+  <div class="why" style="margin-top:20px">
+    <div class="card y"><h4>No mixing</h4><p>Honey, oil and gur sold as they are. No sugar syrup, no colour.</p></div>
+    <div class="card y"><h4>Clean packing</h4><p>Sealed jars and bottles, packed fresh for each order.</p></div>
+    <div class="card y"><h4>Fair price</h4><p>Price shown upfront, delivery charge shown at checkout.</p></div>
+    <div class="card y"><h4>Real support</h4><p>Talk to a person on WhatsApp before and after you order.</p></div>
+  </div>
+</section>
 
-  <!-- ============ FEATURED / SHOP ============ -->
-  <section class="shop" id="shop">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Featured Products</h2>
-        </div>
-        <a href="#shop" class="view-all" id="viewAllBtn">View All →</a>
-      </div>
-      <div class="product-grid" id="productGrid">
-        <!-- product cards injected by script.js -->
-      </div>
-    </div>
-  </section>
+<section class="wrap sec" id="delivery">
+  <h2 class="ttl s">Delivery &amp; payment</h2>
+  <div class="two" style="margin-top:18px">
+    <div class="card y"><p><b>Cash on delivery.</b> Pay the courier when the parcel arrives.</p><p><b>Inside Dhaka:</b> 1–2 days, ৳<span id="rD"></span></p><p><b>Outside Dhaka:</b> 3–5 days, ৳<span id="rO"></span></p></div>
+    <div class="card y"><p><b>How to order.</b> Add items to your cart, fill in your address, and confirm. WhatsApp opens with your order ready to send.</p><p>We call or message you to confirm before dispatch.</p></div>
+  </div>
+</section>
 
-  <!-- ============ PROMO STRIP ============ -->
-  <section class="promo-strip">
-    <div class="container">
-      <div class="promo-grid" id="promoGrid">
-        <div class="promo-tile promo-1">
-          <h3>Up to 50% Off</h3>
-          <p>On selected home decor items</p>
-          <a href="#shop" class="btn btn-sm">Shop Now →</a>
-        </div>
-        <div class="promo-tile promo-2">
-          <h3>Cozy Bedding</h3>
-          <p>Soft • Comfortable • Premium</p>
-          <a href="#shop" class="btn btn-sm">Shop Bedding →</a>
-        </div>
-        <div class="promo-tile promo-3">
-          <h3>Modern Kitchen Essentials</h3>
-          <p>Cook • Serve • Enjoy</p>
-          <a href="#shop" class="btn btn-sm">Shop Kitchen →</a>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="wrap sec" id="faq">
+  <h2 class="ttl s">Questions</h2>
+  <details><summary>Is the honey really pure?</summary><p>Yes. We sell it as collected, with no added sugar. Crystallised honey is natural; warm the jar in a bowl of warm water.</p></details>
+  <details><summary>What is kachi ghani mustard oil?</summary><p>Mustard seeds pressed cold, without heating. It keeps the strong smell and taste used in bhorta and pickles.</p></details>
+  <details><summary>When is khejurer gur available?</summary><p>Fresh date palm gur comes in winter. Out of season, tap “Notify me” and we will message you.</p></details>
+  <details><summary>Can I return a product?</summary><p>Message us on WhatsApp within 24 hours of delivery if something is wrong.</p></details>
+</section>
 
-  <!-- ============ WHY CHOOSE US ============ -->
-  <section class="why-us" id="why-us">
-    <div class="container">
-      <div class="section-head"><div><h2>Why Grihokona</h2></div></div>
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="why-icon">✓</div>
-          <h3>Quality checked</h3>
-          <p>Every product is inspected before it leaves our warehouse.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">৳</div>
-          <h3>Fair pricing</h3>
-          <p>No middleman markups — honest prices, always shown upfront.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">⚡</div>
-          <h3>Fast dispatch</h3>
-          <p>Orders placed before 5 PM are shipped the same day.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">💬</div>
-          <h3>Real support</h3>
-          <p>Talk to an actual person on WhatsApp, before and after you order.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ TESTIMONIALS ============ -->
-  <section class="testimonials" id="reviews">
-    <div class="container">
-      <div class="section-head"><div><h2>What customers say</h2></div></div>
-      <div class="testimonial-grid">
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="quote">The pour-over set looks and feels far more expensive than what I paid. Packaging was excellent too.</p>
-          <p class="author">— Farhana A., Dhanmondi</p>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="quote">Ordered on WhatsApp, delivered in two days, exactly as shown. Will definitely order again.</p>
-          <p class="author">— Imran K., Chattogram</p>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="quote">Quality is genuinely great value. The bedsheets are the softest I've bought in Bangladesh.</p>
-          <p class="author">— Nusrat J., Uttara</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ DELIVERY / COD ============ -->
-  <section class="delivery" id="delivery">
-    <div class="container delivery-inner">
-      <div class="delivery-copy">
-        <h2>Delivery & payment</h2>
-        <p>We deliver across Bangladesh through trusted courier partners. Pay when your order arrives at your door.</p>
-        <ul class="delivery-list">
-          <li><strong>Cash on Delivery</strong> — pay the courier in cash when you receive your parcel.</li>
-          <li><strong>Inside Dhaka</strong> — usually delivered in 1–2 days.</li>
-          <li><strong>Outside Dhaka</strong> — usually delivered in 3–5 days.</li>
-        </ul>
-      </div>
-      <div class="delivery-rates">
-        <div class="rate-card"><span class="rate-label">Inside Dhaka</span><span class="rate-value" id="rateDhaka">৳70</span></div>
-        <div class="rate-card"><span class="rate-label">Outside Dhaka</span><span class="rate-value" id="rateOutside">৳130</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FAQ ============ -->
-  <section class="faq" id="faq">
-    <div class="container">
-      <div class="section-head"><div><h2>Frequently asked questions</h2></div></div>
-      <div class="faq-list">
-        <details class="faq-item"><summary>How long does delivery take?</summary><p>Usually 1–2 days inside Dhaka and 3–5 days outside Dhaka, once your order is confirmed on WhatsApp.</p></details>
-        <details class="faq-item"><summary>Do I need to pay in advance?</summary><p>No. We only offer Cash on Delivery — you pay the courier when your parcel arrives.</p></details>
-        <details class="faq-item"><summary>Can I return or exchange a product?</summary><p>Yes, message us on WhatsApp within 24 hours of delivery if there's a genuine issue with your order, and we'll sort it out.</p></details>
-        <details class="faq-item"><summary>How do I place an order?</summary><p>Add products to your cart, fill in your delivery details at checkout, and confirm — it opens WhatsApp with your order ready to send.</p></details>
-        <details class="faq-item"><summary>What if a product is out of stock?</summary><p>Tap "Notify Me" on the product — it opens WhatsApp so we can message you the moment it's back.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CONTACT ============ -->
-  <section class="contact" id="contact">
-    <div class="container contact-inner">
-      <div>
-        <h2>Let's talk</h2>
-        <p>Questions about a product or your order? We reply fastest on WhatsApp.</p>
-      </div>
-      <div class="contact-actions">
-        <a href="https://wa.me/8801903770516" target="_blank" rel="noopener" class="btn btn-primary whatsapp-link">Chat on WhatsApp</a>
-        <a href="tel:+8801903770516" class="btn btn-ghost">Call us</a>
-      </div>
-    </div>
-  </section>
-
+<section class="wrap sec" id="contact">
+  <div class="card y"><h2 class="ttl s" style="color:var(--ink)">Let's talk</h2><p>Questions about a product or an order? We reply fastest on WhatsApp.</p>
+  <div class="btns" style="justify-content:flex-start;margin-top:12px"><a class="cta whatsapp" href="#" target="_blank" rel="noopener">Chat on WhatsApp</a><a class="btn" id="callLink" href="#" style="background:var(--dk)">Call us</a></div></div>
+</section>
 </main>
 
-<!-- ============ FOOTER ============ -->
-<footer class="site-footer">
-  <div class="footer-trust">
-    <div class="container footer-trust-grid">
-      <div class="footer-trust-item">
-        <div class="ft-icon">🚚</div>
-        <div><strong>Free Shipping</strong><span>For orders over ৳1500</span></div>
-      </div>
-      <div class="footer-trust-item">
-        <div class="ft-icon">🛡️</div>
-        <div><strong>Cash on Delivery</strong><span>Pay when it arrives</span></div>
-      </div>
-      <div class="footer-trust-item">
-        <div class="ft-icon">🎧</div>
-        <div><strong>Real Support</strong><span>We're here on WhatsApp</span></div>
-      </div>
-    </div>
-  </div>
-  <div class="container footer-main">
-    <div class="footer-brand-row">
-      <div>
-        <span class="brand-name">Grihokona</span>
-        <p style="color:#AFC4B8; font-size:0.85rem; margin-top:4px;">Home & lifestyle products, delivered across Bangladesh.</p>
-      </div>
-      <div class="footer-social">
-        <a href="#" aria-label="Facebook">f</a>
-        <a href="#" aria-label="Instagram">◎</a>
-        <a href="#" aria-label="YouTube">▶</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© <span id="year"></span> Grihokona. All rights reserved.</span>
-      <div class="footer-bottom-links">
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </div>
-</footer>
+<footer><a href="#home" class="logo" aria-label="RIZQ"><svg viewBox="0 0 285 105"><use href="#logo"/></svg></a><p>Honey, nuts, mustard oil &amp; gur. Delivered across Bangladesh.</p><p>© <span id="yr"></span> RIZQ. All rights reserved.</p></footer>
 
-<!-- ============ MOBILE STICKY NAV ============ -->
-<nav class="mobile-nav" aria-label="Mobile navigation">
-  <a href="#home" class="mnav-item"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Home</span></a>
-  <a href="#shop" class="mnav-item"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16"/></svg><span>Shop</span></a>
-  <button class="mnav-item mnav-cart" id="mobileWishlistBtn"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7.5-4.6-10-9.2C.4 8.4 2 4.5 5.8 4a5 5 0 0 1 6.2 3 5 5 0 0 1 6.2-3c3.8.5 5.4 4.4 3.8 7.8C19.5 16.4 12 21 12 21Z"/></svg><span>Saved</span><span class="mnav-badge" id="mobileWishlistCount">0</span></button>
-  <button class="mnav-item mnav-cart" id="mobileCartBtn"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1.5"/><circle cx="18" cy="21" r="1.5"/><path d="M2 3h2l2.6 12.4a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L21 7H6"/></svg><span>Cart</span><span class="mnav-badge" id="mobileCartCount">0</span></button>
-  <a href="#contact" class="mnav-item"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.6 8.6 0 0 1-3.6-.8L3 21l1.9-5.4A8.4 8.4 0 1 1 21 11.5Z"/></svg><span>Contact</span></a>
-</nav>
+<div id="cbar"><button class="cb" id="cbar-btn"><div class="ct"><b id="cbN">0 items</b><small id="cbT">৳0</small></div><span class="cta">View cart</span></button></div>
+<div class="bk" id="bk"></div>
 
-<!-- ============ CART DRAWER ============ -->
-<div class="overlay" id="overlay"></div>
-<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
-  <div class="drawer-head"><h3>Your cart</h3><button class="icon-btn" id="closeCartBtn" aria-label="Close cart">✕</button></div>
-  <div class="cart-items" id="cartItems"></div>
-  <div class="cart-summary">
-    <div class="summary-row"><span>Subtotal</span><span id="cartSubtotal">৳0</span></div>
-    <button class="btn btn-primary btn-block" id="checkoutBtn">Proceed to checkout</button>
-  </div>
+<aside class="scr" id="cartS" aria-label="Cart"><div class="stop"><span class="stitle">Your cart</span><button class="sbtn" data-close aria-label="Close">✕</button></div><div id="cartL"></div><div class="sum" id="cartSum"></div><button class="cta" id="toCheckout">Checkout</button></aside>
+<aside class="scr" id="wishS" aria-label="Saved items"><div class="stop"><span class="stitle">Saved for later</span><button class="sbtn" data-close aria-label="Close">✕</button></div><div id="wishL"></div></aside>
+<aside class="scr" id="detS" aria-label="Product"><div class="stop"><span class="stitle" id="dN"></span><button class="sbtn" data-close aria-label="Close">✕</button></div><div class="dimg" id="dI"></div><div class="chip" id="dP" style="align-self:center"></div><p id="dD" style="margin:0;font-weight:600"></p><div class="row" style="justify-content:center"><div class="qty"><button id="dm" aria-label="Less">−</button><span id="dq">1</span><button id="dp" aria-label="More">+</button></div></div><div class="btns"><button class="btn" id="dAdd">Add to cart</button><button class="cta" id="dBuy">Buy now</button></div></aside>
+<aside class="scr" id="chkS" aria-label="Checkout"><div class="stop"><span class="stitle">Checkout</span><button class="sbtn" data-close aria-label="Close">✕</button></div>
+  <form id="f" novalidate>
+    <label class="fld"><span>Full name</span><input name="name" required placeholder="e.g. Md Karim Uddin" autocomplete="name"></label>
+    <label class="fld"><span>Mobile number</span><input name="phone" required inputmode="tel" placeholder="01XXXXXXXXX" autocomplete="tel"></label>
+    <label class="fld"><span>Full address</span><textarea name="address" required placeholder="House, road, area" rows="2"></textarea></label>
+    <label class="fld"><span>Area / Thana</span><input name="thana" required placeholder="e.g. Mirpur, Dhaka"></label>
+    <div class="fld"><span>Delivery zone</span><div class="zone"><label><input type="radio" name="zone" value="dhaka" checked> Inside Dhaka</label><label><input type="radio" name="zone" value="outside"> Outside Dhaka</label></div></div>
+    <label class="fld"><span>Note (optional)</span><textarea name="note" rows="2" placeholder="Anything we should know?"></textarea></label>
+    <div class="sum" id="chkSum"></div>
+    <button type="submit" class="cta" style="width:100%;margin-top:14px">Send order on WhatsApp</button>
+  </form>
+  <div id="done" hidden style="text-align:center"><div class="chip">Order sent</div><p>WhatsApp opened with your order. Tap send to confirm.</p><p>Order ID: <b id="oid"></b></p><button class="cta" data-close>Continue shopping</button></div>
 </aside>
+<div id="toast" role="status"></div>
 
-<!-- ============ WISHLIST DRAWER ============ -->
-<aside class="cart-drawer" id="wishlistDrawer" aria-label="Wishlist">
-  <div class="drawer-head"><h3>Saved for later</h3><button class="icon-btn" id="closeWishlistBtn" aria-label="Close wishlist">✕</button></div>
-  <div class="cart-items" id="wishlistItems"></div>
-</aside>
+<!-- Art for products (replace with your own photos via the "img" field in PRODUCTS) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="spk" viewBox="0 0 40 40"><path d="M20 0C22 12 28 18 40 20C28 22 22 28 20 40C18 28 12 22 0 20C12 18 18 12 20 0z" fill="#ffdb4d"/></symbol><symbol id="sq" viewBox="0 0 120 40"><path d="M5 30L25 8L35 32L55 8L65 32L85 8L95 30L115 10" fill="none" stroke="#fff8f0" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="logo" viewBox="0 0 285 105"><g fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><path d="M24 85V15H46A19 19 0 0 1 46 53H24M46 53L66 85"/><path d="M95 15V85"/><path d="M122 15H160L122 85H162"/><circle cx="215" cy="50" r="33"/></g><path d="M244 66C250 76 256 82 256 91a12 12 0 0 1-24 0C232 82 238 76 244 66z" fill="#ff7f23" stroke="#3a1608" stroke-width="4"/></symbol>
+<g id="art-honey"><rect x="22" y="26" width="56" height="78" rx="14" fill="#e08a00"/><rect x="26" y="42" width="48" height="52" rx="8" fill="#ffc83a"/><rect x="28" y="12" width="44" height="16" rx="4" fill="#7a3a0e"/><path d="M34 42c0 12 8 12 8 22s-4 10 0 14" stroke="#fff3c2" stroke-width="5" fill="none" stroke-linecap="round" opacity=".7"/></g>
+<g id="art-nut"><ellipse cx="38" cy="66" rx="24" ry="32" fill="#c98a4b" transform="rotate(-20 38 66)"/><ellipse cx="66" cy="62" rx="20" ry="28" fill="#e2b072" transform="rotate(18 66 62)"/><path d="M30 44c8 14 6 36 0 52M64 40c-6 14-4 30 2 44" stroke="#8a5424" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+<g id="art-oil"><rect x="30" y="38" width="40" height="70" rx="12" fill="#e5b800"/><rect x="34" y="62" width="32" height="30" rx="4" fill="#fff3c2"/><rect x="40" y="16" width="20" height="26" rx="4" fill="#d99a00"/><rect x="38" y="8" width="24" height="10" rx="3" fill="#7a3a0e"/></g>
+<g id="art-gur"><path d="M16 78l12-34h44l12 34z" fill="#8a4a14"/><rect x="16" y="78" width="68" height="20" rx="5" fill="#6e3a0e"/><path d="M34 52h12M52 52h14M30 64h30" stroke="#c98a4b" stroke-width="4" stroke-linecap="round"/></g>
+</defs></svg>
 
-<!-- ============ CHECKOUT MODAL ============ -->
-<div class="modal" id="checkoutModal" aria-hidden="true">
-  <div class="modal-card">
-    <div class="drawer-head"><h3 id="checkoutTitle">Checkout</h3><button class="icon-btn" id="closeCheckoutBtn" aria-label="Close checkout">✕</button></div>
+<script>
+/* ===== SETTINGS ===== */
+var WA_NUMBER="8801903770516";            /* WhatsApp number, with country code, no + */
+var RATE={dhaka:70,outside:130};          /* delivery charge */
+var FREE_OVER=1500;                       /* free delivery over this subtotal */
+var CATS=["Honey","Nuts","Mustard Oil","Akher Gur","Khejurer Gur"];
+var BN={"Honey":"মধু","Nuts":"বাদাম","Mustard Oil":"সরিষার তেল","Akher Gur":"আখের গুড়","Khejurer Gur":"খেজুরের গুড়"};
+var ART={"Honey":"honey","Nuts":"nut","Mustard Oil":"oil","Akher Gur":"gur","Khejurer Gur":"gur"};
+/* ===== PRODUCTS: edit prices here. img:"images/xyz.jpg" shows your own photo. stock:false shows Notify me. ===== */
+var PRODUCTS=[
+{id:"h1",cat:"Honey",name:"Khalisha Flower Honey",bn:"খলিশা ফুলের মধু",size:"500 g",price:650,old:720,img:"",desc:"Light, floral honey from the Sundarbans-side apiaries. Sold as collected, no added sugar.",tag:"Best seller"},
+{id:"h2",cat:"Honey",name:"Litchi Flower Honey",bn:"লিচু ফুলের মধু",size:"500 g",price:600,img:"",desc:"Sweet and mild, collected in litchi season."},
+{id:"h3",cat:"Honey",name:"Mustard Flower Honey",bn:"সরিষা ফুলের মধু",size:"500 g",price:550,img:"",desc:"Pale gold honey that sets creamy. Natural crystallising is normal."},
+{id:"n1",cat:"Nuts",name:"Almond",bn:"কাঠবাদাম",size:"250 g",price:420,img:"",desc:"Whole, crisp almonds. Good for soaking overnight."},
+{id:"n2",cat:"Nuts",name:"Cashew",bn:"কাজুবাদাম",size:"250 g",price:480,img:"",desc:"Whole white cashews, packed in a sealed pouch."},
+{id:"n3",cat:"Nuts",name:"Walnut",bn:"আখরোট",size:"250 g",price:450,img:"",desc:"Shelled walnut halves."},
+{id:"n4",cat:"Nuts",name:"Pistachio",bn:"পেস্তা বাদাম",size:"250 g",price:690,img:"",desc:"Lightly salted roasted pistachio.",stock:false},
+{id:"m1",cat:"Mustard Oil",name:"Kachi Ghani Mustard Oil",bn:"কাঁচি ঘানি সরিষার তেল",size:"1 litre",price:420,img:"",desc:"Cold pressed mustard seed oil with the strong, sharp smell.",tag:"Fresh"},
+{id:"m2",cat:"Mustard Oil",name:"Kachi Ghani Mustard Oil",bn:"কাঁচি ঘানি সরিষার তেল",size:"500 ml",price:220,img:"",desc:"The same cold pressed oil in a smaller bottle."},
+{id:"a1",cat:"Akher Gur",name:"Akher Patali Gur",bn:"আখের পাটালি গুড়",size:"1 kg",price:220,img:"",desc:"Hard block jaggery from sugarcane juice. Nothing added."},
+{id:"a2",cat:"Akher Gur",name:"Akher Liquid Gur",bn:"আখের ঝোলা গুড়",size:"1 kg",price:240,img:"",desc:"Soft liquid jaggery, good with roti and pitha."},
+{id:"k1",cat:"Khejurer Gur",name:"Khejurer Patali Gur",bn:"খেজুরের পাটালি গুড়",size:"1 kg",price:480,img:"",desc:"Hard date palm jaggery with the winter smoky sweetness.",tag:"Winter"},
+{id:"k2",cat:"Khejurer Gur",name:"Khejurer Jhola Gur",bn:"খেজুরের ঝোলা গুড়",size:"1 kg",price:520,img:"",desc:"Liquid date palm jaggery, fresh from the pot.",stock:false}
+];
 
-    <div class="checkout-step" id="checkoutFormStep">
-      <form id="checkoutForm">
-        <label class="field"><span>Full name</span><input type="text" name="name" required placeholder="e.g. Md Karim Uddin"></label>
-        <label class="field"><span>Mobile number</span><input type="tel" name="phone" required placeholder="01XXXXXXXXX" pattern="^01[0-9]{9}$"></label>
-        <label class="field"><span>Full address</span><textarea name="address" required placeholder="House, Road, Area"></textarea></label>
-        <label class="field"><span>Area / Thana</span><input type="text" name="thana" required placeholder="e.g. Mirpur, Dhaka"></label>
-        <label class="field radio-field">
-          <span>Delivery zone</span>
-          <div class="radio-group">
-            <label><input type="radio" name="zone" value="dhaka" checked> Inside Dhaka</label>
-            <label><input type="radio" name="zone" value="outside"> Outside Dhaka</label>
-          </div>
-        </label>
-        <label class="field"><span>Note (optional)</span><textarea name="note" placeholder="Anything we should know?"></textarea></label>
-        <button type="submit" class="btn btn-primary btn-block">Review order</button>
-      </form>
-    </div>
+/* ===== HELPERS ===== */
+var $=function(s){return document.querySelector(s)};
+var tk=function(n){return "৳"+n.toLocaleString("en-US")};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function store(k,v){try{if(v===undefined){return JSON.parse(localStorage.getItem(k)||"null")}localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}}
+var cart=store("rizq_cart")||{},wish=store("rizq_wish")||[],cat="All",term="",cur=null,dq=1;
+function P(id){return PRODUCTS.filter(function(p){return p.id===id})[0]}
+function art(p){
+  var h=p.img?'<img src="'+esc(p.img)+'" alt="'+esc(p.name)+'" loading="lazy" onerror="this.outerHTML=this.dataset.fb" data-fb="'+esc(artSvg(p))+'">':artSvg(p);
+  return h}
+function artSvg(p){return '<svg viewBox="-10 -4 120 128" role="img" aria-label="'+esc(p.name)+'"><use href="#art-'+ART[p.cat]+'"/></svg>'}
+function toast(m){var t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(function(){t.classList.remove("show")},1800)}
+function wa(text){return "https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(text)}
 
-    <div class="checkout-step" id="checkoutReviewStep" hidden>
-      <div id="reviewContent"></div>
-      <div class="review-actions">
-        <button class="btn btn-ghost" id="backToFormBtn">Back</button>
-        <button class="btn btn-primary" id="confirmOrderBtn">Confirm order via WhatsApp</button>
-      </div>
-    </div>
+/* ===== SHOP ===== */
+function chips(){
+  $("#chips").innerHTML=["All"].concat(CATS).map(function(c){return '<button data-c="'+c+'" class="'+(c===cat?"on":"")+'">'+(c==="All"?"All":c+" • "+BN[c])+'</button>'}).join("")}
+function tile(p){
+  var out=p.stock===false;
+  return '<div class="tile">'+(p.tag?'<span class="hit">'+esc(p.tag)+'</span>':'')+
+  '<button class="tp" data-v="'+p.id+'" aria-label="View '+esc(p.name)+'">'+art(p)+'</button>'+
+  '<span class="lab" data-v="'+p.id+'">'+esc(p.name)+'</span><span class="sub">'+esc(p.bn)+' • '+esc(p.size)+'</span>'+
+  '<div class="pz">'+tk(p.price)+(p.old?'<s>'+tk(p.old)+'</s>':'')+'</div>'+
+  '<div class="row"><button class="padd" data-a="'+p.id+'">'+(out?"Notify me":"Add to cart")+'</button>'+
+  '<button class="heart'+(wish.indexOf(p.id)>-1?" on":"")+'" data-w="'+p.id+'" aria-label="Save"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.2C.4 8.4 2 4.5 5.8 4a5 5 0 0 1 6.2 3 5 5 0 0 1 6.2-3c3.8.5 5.4 4.4 3.8 7.8C19.5 16.4 12 21 12 21Z"/></svg></button></div></div>'}
+function render(){
+  var list=PRODUCTS.filter(function(p){return (cat==="All"||p.cat===cat)&&(p.name+p.bn+p.cat+p.desc).toLowerCase().indexOf(term)>-1});
+  if(!list.length){$("#grid").innerHTML='<p class="empty">Nothing found. Try another word or category.</p>';return}
+  $("#grid").innerHTML=CATS.map(function(c){
+    var items=list.filter(function(p){return p.cat===c});
+    return items.length?'<h3>'+c+' • '+BN[c]+'</h3><div class="tg">'+items.map(tile).join("")+'</div>':""}).join("")}
 
-    <div class="checkout-step" id="checkoutDoneStep" hidden>
-      <div class="done-box">
-        <div class="done-icon">✓</div>
-        <h4>Order sent!</h4>
-        <p>We opened WhatsApp with your order details. Please tap send to confirm with us.</p>
-        <p class="order-id-note">Order ID: <strong id="doneOrderId"></strong></p>
-        <button class="btn btn-primary btn-block" id="doneCloseBtn">Continue shopping</button>
-      </div>
-    </div>
-  </div>
-</div>
+/* ===== CART ===== */
+function count(){return Object.keys(cart).reduce(function(a,k){return a+cart[k]},0)}
+function sub(){return Object.keys(cart).reduce(function(a,k){return a+P(k).price*cart[k]},0)}
+function ship(z){return sub()>=FREE_OVER?0:RATE[z||"dhaka"]}
+function save(){store("rizq_cart",cart);store("rizq_wish",wish);var n=count();
+  $("#cc").textContent=n||"";$("#wc").textContent=wish.length||"";
+  $("#cbN").textContent=n+(n===1?" item":" items");$("#cbT").textContent=tk(sub());$("#cbar-btn").classList.toggle("show",n>0)}
+function add(id,q){var p=P(id);if(p.stock===false){window.open(wa("Hello RIZQ, please notify me when "+p.name+" ("+p.size+") is available."),"_blank");return}
+  cart[id]=(cart[id]||0)+(q||1);save();toast("Added to cart")}
+function cartView(){
+  var ids=Object.keys(cart);
+  $("#cartL").innerHTML=ids.length?ids.map(function(id){var p=P(id);return '<div class="line"><div class="th">'+art(p)+'</div><div class="nm">'+esc(p.name)+'<small>'+esc(p.size)+' • '+tk(p.price)+'</small></div><div class="qty"><button data-m="'+id+'" aria-label="Less">−</button><span>'+cart[id]+'</span><button data-p="'+id+'" aria-label="More">+</button></div></div>'}).join(""):'<p class="empty">Your cart is empty. Pick something from the shop.</p>';
+  $("#cartSum").innerHTML='<div><span>Subtotal</span><span>'+tk(sub())+'</span></div><div><span>Delivery</span><span>from '+(sub()>=FREE_OVER?"free":tk(RATE.dhaka))+'</span></div>';
+  $("#toCheckout").style.display=ids.length?"":"none";$("#cartSum").style.display=ids.length?"":"none"}
+function wishView(){
+  $("#wishL").innerHTML=wish.length?wish.map(function(id){var p=P(id);return '<div class="line"><div class="th">'+art(p)+'</div><div class="nm">'+esc(p.name)+'<small>'+esc(p.size)+' • '+tk(p.price)+'</small></div><button class="padd" data-a="'+id+'">Add</button><button class="heart on" data-w="'+id+'" aria-label="Remove">✕</button></div>'}).join(""):'<p class="empty">Nothing saved yet. Tap the heart on a product.</p>'}
 
-<!-- ============ PRODUCT DETAIL MODAL ============ -->
-<div class="modal" id="productDetailModal" aria-hidden="true">
-  <div class="modal-card detail-modal-card">
-    <button class="icon-btn detail-close" id="closeDetailBtn" aria-label="Close">✕</button>
-    <div class="detail-main-image" id="detailMainImageWrap">
-      <span class="badge" id="detailDiscountBadge" hidden></span>
-      <span class="badge badge-tag" id="detailNewBadge" hidden style="left:auto; right:44px;"></span>
-      <button class="wish-toggle" id="detailWishBtn" aria-label="Save to wishlist">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7.5-4.6-10-9.2C.4 8.4 2 4.5 5.8 4a5 5 0 0 1 6.2 3 5 5 0 0 1 6.2-3c3.8.5 5.4 4.4 3.8 7.8C19.5 16.4 12 21 12 21Z"/></svg>
-      </button>
-      <img id="detailMainImage" src="" alt="">
-    </div>
-    <div class="detail-thumbs" id="detailThumbs"></div>
-    <div class="detail-info">
-      <span class="product-cat" id="detailCategory"></span>
-      <h3 id="detailName"></h3>
-      <div class="rating-row" id="detailRatingRow" hidden></div>
-      <div class="price-row" id="detailPriceRow"></div>
-      <span class="stock" id="detailStock"></span>
-      <p class="detail-desc" id="detailDesc"></p>
-      <div id="detailBuyBlock">
-        <div class="qty-row">
-          <div class="qty-control">
-            <button type="button" id="detailQtyMinus" aria-label="Decrease quantity">−</button>
-            <span id="detailQtyValue">1</span>
-            <button type="button" id="detailQtyPlus" aria-label="Increase quantity">+</button>
-          </div>
-        </div>
-        <div class="card-actions">
-          <button class="btn btn-ghost" id="detailAddToCart" type="button">Add to Cart</button>
-          <button class="btn btn-primary" id="detailBuyNow" type="button">Buy Now</button>
-        </div>
-      </div>
-      <button class="btn btn-ghost notify-btn" id="detailNotifyBtn" type="button" hidden>Notify Me When Available</button>
-    </div>
-  </div>
-</div>
+/* ===== PANELS ===== */
+function open(id){closeAll();$("#bk").classList.add("show");$(id).classList.add("show");document.body.style.overflow="hidden"}
+function closeAll(){document.querySelectorAll(".scr.show,.bk.show").forEach(function(e){e.classList.remove("show")});document.body.style.overflow=""}
+function detail(id){cur=P(id);dq=1;$("#dN").textContent=cur.name;$("#dI").innerHTML=art(cur);
+  $("#dP").textContent=cur.size+" • "+tk(cur.price);$("#dD").textContent=cur.bn+". "+cur.desc;$("#dq").textContent=1;
+  var out=cur.stock===false;$("#dAdd").textContent=out?"Notify me":"Add to cart";$("#dBuy").style.display=out?"none":"";open("#detS")}
+function checkout(){
+  $("#f").hidden=false;$("#done").hidden=true;chkSum();open("#chkS")}
+function chkSum(){var z=($("#f").zone.value)||"dhaka",s=ship(z);
+  $("#chkSum").innerHTML='<div><span>Subtotal</span><span>'+tk(sub())+'</span></div><div><span>Delivery</span><span>'+(s?tk(s):"Free")+'</span></div><div class="tot"><span>Total</span><span>'+tk(sub()+s)+'</span></div>'}
 
-<!-- ============ IMAGE LIGHTBOX ============ -->
-<div class="modal lightbox-modal" id="lightboxModal" aria-hidden="true">
-  <div class="lightbox-card">
-    <button class="icon-btn lightbox-close" id="closeLightboxBtn" aria-label="Close image viewer">✕</button>
-    <div class="lightbox-main">
-      <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
-      <img id="lightboxImage" src="" alt="">
-      <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
-    </div>
-    <div class="lightbox-thumbs" id="lightboxThumbs"></div>
-  </div>
-</div>
+document.addEventListener("click",function(e){
+  var t=e.target.closest("[data-c],[data-v],[data-a],[data-w],[data-m],[data-p],[data-close]");if(!t)return;
+  var d=t.dataset;
+  if(d.c){cat=d.c;chips();render()}
+  else if(d.v)detail(d.v);
+  else if(d.a){add(d.a);if($("#wishS").classList.contains("show")){wishView()}}
+  else if(d.w){var i=wish.indexOf(d.w);i>-1?wish.splice(i,1):wish.push(d.w);save();render();wishView()}
+  else if(d.m){cart[d.m]--;if(cart[d.m]<1)delete cart[d.m];save();cartView()}
+  else if(d.p){cart[d.p]++;save();cartView()}
+  else if("close" in d)closeAll()});
+$("#bk").onclick=closeAll;
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeAll()});
+$("#q").oninput=function(){term=this.value.trim().toLowerCase();render()};
+$("#cartBtn").onclick=$("#cbar-btn").onclick=function(){cartView();open("#cartS")};
+$("#wishBtn").onclick=function(){wishView();open("#wishS")};
+$("#toCheckout").onclick=checkout;
+$("#dm").onclick=function(){dq=Math.max(1,dq-1);$("#dq").textContent=dq};
+$("#dp").onclick=function(){dq++;$("#dq").textContent=dq};
+$("#dAdd").onclick=function(){add(cur.id,dq);if(cur.stock!==false)closeAll()};
+$("#dBuy").onclick=function(){add(cur.id,dq);checkout()};
+$("#f").addEventListener("change",chkSum);
+$("#f").addEventListener("submit",function(e){
+  e.preventDefault();var f=this;
+  if(!f.name.value.trim()||!f.address.value.trim()||!f.thana.value.trim()){toast("Please fill in all required fields");return}
+  if(!/^01[0-9]{9}$/.test(f.phone.value.trim())){toast("Enter an 11-digit mobile number like 01XXXXXXXXX");return}
+  var z=f.zone.value,s=ship(z),id="RZ"+Date.now().toString().slice(-7);
+  var lines=Object.keys(cart).map(function(k){var p=P(k);return "• "+p.name+" ("+p.size+") x"+cart[k]+" = "+tk(p.price*cart[k])}).join("\n");
+  var msg="New RIZQ order "+id+"\n\n"+lines+"\n\nSubtotal: "+tk(sub())+"\nDelivery: "+(s?tk(s):"Free")+"\nTotal: "+tk(sub()+s)+"\n\nName: "+f.name.value.trim()+"\nPhone: "+f.phone.value.trim()+"\nAddress: "+f.address.value.trim()+", "+f.thana.value.trim()+" ("+(z==="dhaka"?"Inside":"Outside")+" Dhaka)"+(f.note.value.trim()?"\nNote: "+f.note.value.trim():"")+"\nPayment: Cash on delivery";
+  window.open(wa(msg),"_blank");
+  $("#oid").textContent=id;f.hidden=true;$("#done").hidden=false;cart={};save();f.reset()});
 
-<div class="toast" id="toast"></div>
-
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
-<script src="firebase-config.js"></script>
-<script src="script.js"></script>
+/* ===== INIT ===== */
+document.querySelectorAll("a.whatsapp").forEach(function(a){a.href=wa("Hello RIZQ, I have a question.")});
+$("#callLink").href="tel:+"+WA_NUMBER;
+$("#rD").textContent=RATE.dhaka;$("#rO").textContent=RATE.outside;$("#yr").textContent=new Date().getFullYear();
+chips();render();save();
+</script>
 </body>
 </html>
