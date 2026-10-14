@@ -25,6 +25,15 @@ label{display:block;font-weight:700;margin-bottom:10px}label.ck{display:flex;gap
 .mod{position:fixed;inset:0;background:rgba(58,22,8,.7);z-index:20;overflow:auto;padding:16px}
 .mod .card{max-width:520px;margin:0 auto}
 .pv{display:flex;align-items:center;gap:12px;margin-bottom:10px}.pv img{width:72px;height:72px;border-radius:50%;object-fit:cover}
+
+.tabs{display:flex;gap:8px;margin:0 0 14px}.tabs .b{flex:1;background:rgba(58,22,8,.35)}.tabs .b.on{background:var(--yl);color:var(--ink);box-shadow:0 4px 0 var(--rd)}
+.slot{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}.slot .bp{width:150px;aspect-ratio:16/9;border-radius:12px;background:#e8d5bf;object-fit:cover;flex:none}
+.slot .ctl{flex:1;min-width:160px}.slot .ctl input{margin-top:6px;padding:6px}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px}.stat{background:var(--cream);border-radius:16px;padding:10px 14px}.stat b{display:block;font:800 26px 'Baloo Da 2';color:var(--rd);line-height:1.1}
+.rt{width:100%;border-collapse:collapse;background:var(--cream);border-radius:16px;overflow:hidden;font-size:15px}.rt th,.rt td{padding:8px 10px;text-align:left;border-bottom:1px solid #e8d5bf}.rt th{background:var(--dk);color:var(--yl)}
+.rt td input{width:76px;padding:4px 8px;border-radius:8px}.rt tr.cat td{background:var(--yl);font-weight:800}.low{color:#a86400;font-weight:800}
+.tw{overflow-x:auto;border-radius:16px}
+@media print{body{background:#fff}.top,.tabs,.rtools,#toast{display:none!important}}
 #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--dk);color:var(--cream);border:2px solid var(--yl);border-radius:999px;padding:6px 20px;font-weight:700;z-index:50;opacity:0;pointer-events:none;transition:.25s}#toast.on{opacity:1}
 </style></head><body>
 
@@ -37,9 +46,25 @@ label{display:block;font-weight:700;margin-bottom:10px}label.ck{display:flex;gap
 <div id="dash" hidden>
   <div class="top"><span><b>RIZQ</b><small>Admin</small></span><button class="b s" id="out">Sign out</button></div>
   <div class="wrap">
+    <div class="tabs"><button class="b on" data-t="vProd">Products</button><button class="b" data-t="vBan">Banner</button><button class="b" data-t="vRep">Stock report</button></div>
+    <div id="vProd">
     <div class="bar"><input type="search" id="s" placeholder="Search products…"><button class="b y" id="add">+ Add product</button></div>
     <div id="list"></div>
     <div class="card" id="seedBox" hidden><b>No products saved yet.</b> The shop is showing the built-in list from index.html. Import it so you can edit it here.<br><br><button class="b y" id="seed">Import current products</button></div>
+    </div>
+    <div id="vBan" hidden><div class="card">
+      <h2 style="margin:0 0 4px;font:800 24px 'Baloo Da 2'">Hero banner (3 swipe photos)</h2>
+      <p style="margin:0 0 14px">Landscape photos (16:9) work best. They swipe on the shop home page. Leave all empty to hide the banner.</p>
+      <div id="bslots"></div>
+      <p class="err" id="be" hidden></p>
+      <button class="b y" id="bsave" style="width:100%">Save banner</button>
+    </div></div>
+    <div id="vRep" hidden>
+      <div class="stats" id="stats"></div>
+      <div class="bar rtools"><select id="rf" style="border:0"><option value="all">All products</option><option value="out">Out of stock</option><option value="low">Low stock (5 or less)</option></select><button class="b s" id="csv">CSV</button><button class="b s" id="prt">Print</button></div>
+      <div class="tw"><table class="rt" id="rt"></table></div>
+      <p style="color:var(--cream);font-weight:600">Type a quantity in the Qty box to update stock. Qty 0 marks the item out of stock on the shop. Items with “—” are not tracked yet.</p>
+    </div>
   </div>
 </div>
 
@@ -50,6 +75,7 @@ label{display:block;font-weight:700;margin-bottom:10px}label.ck{display:flex;gap
     <label>Name (Bangla)<input name="bn" placeholder="খলিশা ফুলের মধু"></label>
     <div class="two"><label>Category<select name="cat" id="cat"></select></label><label>Size<input name="size" required placeholder="500 g"></label></div>
     <div class="two"><label>Price (৳)<input type="number" name="price" required min="0"></label><label>Old price (optional)<input type="number" name="old" min="0"></label></div>
+    <label>Stock quantity (optional, 0 = out of stock)<input type="number" name="qty" min="0" placeholder="e.g. 25"></label>
     <label>Badge (optional)<input name="tag" placeholder="Best seller, Fresh, Winter"></label>
     <label>Description<textarea name="desc" rows="3"></textarea></label>
     <label>Photo<input type="file" id="file" accept="image/*"></label>
@@ -82,11 +108,11 @@ $("#lf").onsubmit=function(e){e.preventDefault();var f=this;$("#le").hidden=true
 $("#out").onclick=function(){auth.signOut()};
 
 function load(){col.get().then(function(sn){items=[];sn.forEach(function(d){var x=d.data();x.id=d.id;items.push(x)});
-  items.sort(function(a,b){return(a.order||0)-(b.order||0)});$("#seedBox").hidden=items.length>0;draw()}).catch(function(){toast("Could not load. Check Firestore rules.")})}
+  items.sort(function(a,b){return(a.order||0)-(b.order||0)});$("#seedBox").hidden=items.length>0;draw();if(!$("#vRep").hidden)report()}).catch(function(){toast("Could not load. Check Firestore rules.")})}
 function draw(){var q=$("#s").value.trim().toLowerCase();
   var l=items.filter(function(p){return((p.name||"")+(p.bn||"")+(p.cat||"")).toLowerCase().indexOf(q)>-1});
   $("#list").innerHTML=l.map(function(p){return'<div class="row">'+(p.img?'<img src="'+esc(p.img)+'" alt="">':'<span class="ph"></span>')+
-   '<div class="nm">'+esc(p.name)+'<small>'+esc(p.cat)+' • '+esc(p.size)+' • ৳'+esc(p.price)+(p.stock===false?' • <span class="out">Out of stock</span>':'')+'</small></div>'+
+   '<div class="nm">'+esc(p.name)+'<small>'+esc(p.cat)+' • '+esc(p.size)+' • ৳'+esc(p.price)+(p.qty!=null?' • Qty '+esc(p.qty):'')+(p.stock===false?' • <span class="out">Out of stock</span>':'')+'</small></div>'+
    '<button class="b s" data-e="'+p.id+'">Edit</button><button class="b s r" data-d="'+p.id+'">Delete</button></div>'}).join("")}
 $("#s").oninput=draw;
 $("#list").onclick=function(e){var t=e.target;
@@ -96,24 +122,35 @@ $("#list").onclick=function(e){var t=e.target;
 
 function openForm(id){eid=id||null;var f=$("#pf"),p=id?items.filter(function(x){return x.id===id})[0]:{};
   f.reset();$("#mt").textContent=id?"Edit product":"Add product";
-  ["name","bn","size","price","old","tag","desc"].forEach(function(k){f[k].value=p[k]==null?"":p[k]});
+  ["name","bn","size","price","old","qty","tag","desc"].forEach(function(k){f[k].value=p[k]==null?"":p[k]});
   f.cat.value=p.cat||CATS[0];f.stock.checked=p.stock!==false;img=p.img||"";pv();$("#pe").hidden=true;$("#mod").hidden=false}
 function pv(){$("#pv").innerHTML=img?'<img src="'+esc(img)+'" alt=""><button type="button" class="b s r" id="rmImg">Remove photo</button>':""}
 $("#pv").onclick=function(e){if(e.target.id==="rmImg"){img="";pv()}};
 $("#add").onclick=function(){openForm()};
 $("#cancel").onclick=function(){$("#mod").hidden=true};
 
-$("#file").onchange=function(){var fl=this.files[0];if(!fl)return;
-  if(!cl.cloud||cl.cloud.indexOf("PASTE")===0){$("#pe").hidden=false;$("#pe").textContent="Cloudinary is not set up. Fill in firebase-config.js.";return}
-  var fd=new FormData();fd.append("file",fl);fd.append("upload_preset",cl.preset);$("#save").disabled=true;toast("Uploading photo…");
-  fetch("https://api.cloudinary.com/v1_1/"+cl.cloud+"/image/upload",{method:"POST",body:fd}).then(function(r){return r.json()}).then(function(j){
-    if(!j.secure_url)throw 0;img=j.secure_url.replace("/upload/","/upload/c_fill,w_600,h_600,q_auto,f_auto/");pv();toast("Photo ready")})
-  .catch(function(){$("#pe").hidden=false;$("#pe").textContent="Photo upload failed. Check cloud name and unsigned preset."})
-  .then(function(){$("#save").disabled=false})};
+function upload(fl,tr){
+  if(!cl.cloud||cl.cloud.indexOf("PASTE")===0||!cl.preset)return Promise.reject(new Error("Cloudinary is not set up. Fill in firebase-config.js."));
+  if(fl.size>10*1024*1024)return Promise.reject(new Error("Photo is bigger than 10 MB. Use a smaller photo."));
+  var fd=new FormData();fd.append("file",fl);fd.append("upload_preset",cl.preset);
+  return fetch("https://api.cloudinary.com/v1_1/"+cl.cloud+"/image/upload",{method:"POST",body:fd})
+   .catch(function(){throw new Error("Network problem. Check your internet and try again.")})
+   .then(function(r){return r.json().catch(function(){return{}})})
+   .then(function(j){
+     if(!j.secure_url){var m=(j.error&&j.error.message)||"Unknown error";
+       if(/preset/i.test(m))m+=" (Check the preset name in firebase-config.js, and that its Signing mode is Unsigned.)";
+       else if(/cloud/i.test(m))m+=" (Check the cloud name in firebase-config.js.)";
+       throw new Error(m)}
+     return j.secure_url.replace("/upload/","/upload/"+tr+"/")})}
+
+$("#file").onchange=function(){var fl=this.files[0],inp=this;if(!fl)return;$("#pe").hidden=true;$("#save").disabled=true;toast("Uploading photo…");
+  upload(fl,"c_fill,w_600,h_600,q_auto,f_auto").then(function(u){img=u;pv();toast("Photo ready")})
+  .catch(function(e){$("#pe").hidden=false;$("#pe").textContent="Photo upload failed: "+e.message})
+  .then(function(){$("#save").disabled=false;inp.value=""})};
 
 $("#pf").onsubmit=function(e){e.preventDefault();var f=this,old=eid?items.filter(function(x){return x.id===eid})[0]:null;
   var d={name:f.name.value.trim(),bn:f.bn.value.trim(),cat:f.cat.value,size:f.size.value.trim(),price:Number(f.price.value),
-    old:f.old.value?Number(f.old.value):null,tag:f.tag.value.trim(),desc:f.desc.value.trim(),img:img,stock:f.stock.checked,order:old?(old.order||0):Date.now()};
+    old:f.old.value?Number(f.old.value):null,qty:f.qty.value===""?null:Number(f.qty.value),tag:f.tag.value.trim(),desc:f.desc.value.trim(),img:img,stock:f.qty.value===""?f.stock.checked:(Number(f.qty.value)>0&&f.stock.checked),order:old?(old.order||0):Date.now()};
   $("#save").disabled=true;
   (eid?col.doc(eid).set(d):col.add(d)).then(function(){$("#mod").hidden=true;toast("Saved");load()})
   .catch(function(){$("#pe").hidden=false;$("#pe").textContent="Could not save. Check you are signed in and Firestore rules are published."})
@@ -124,4 +161,46 @@ $("#seed").onclick=function(){this.disabled=true;
     var m=t.match(/var PRODUCTS=(\[[\s\S]*?\n\]);/),a=(new Function("return "+m[1]))(),b=firebase.firestore().batch();
     a.forEach(function(p,i){var id=p.id;delete p.id;p.order=i+1;p.old=p.old||null;p.tag=p.tag||"";p.stock=p.stock!==false;b.set(col.doc(id),p)});
     return b.commit()}).then(function(){toast("Imported");load()}).catch(function(){toast("Import failed")})};
+
+/* ===== tabs ===== */
+document.querySelector(".tabs").onclick=function(e){var t=e.target.dataset.t;if(!t)return;
+  [].forEach.call(this.children,function(b){b.classList.toggle("on",b.dataset.t===t)});
+  ["vProd","vBan","vRep"].forEach(function(v){$("#"+v).hidden=v!==t});
+  if(t==="vBan")loadBan();if(t==="vRep")report()};
+
+/* ===== banner ===== */
+var bs=["","",""],bdoc=firebase.firestore().doc("settings/hero");
+function loadBan(){bdoc.get().then(function(d){var s=d.exists&&d.data().slides||[];bs=[s[0]||"",s[1]||"",s[2]||""];drawBan()}).catch(function(){toast("Could not load banner. Check Firestore rules (see ADMIN-SETUP.md).")})}
+function drawBan(){$("#bslots").innerHTML=bs.map(function(u,i){return'<div class="slot">'+(u?'<img class="bp" src="'+esc(u)+'" alt="">':'<span class="bp"></span>')+
+  '<div class="ctl"><b>Photo '+(i+1)+'</b><input type="file" accept="image/*" data-i="'+i+'">'+(u?'<button type="button" class="b s r" data-r="'+i+'" style="margin-top:6px">Remove</button>':'')+'</div></div>'}).join("")}
+$("#bslots").onchange=function(e){var t=e.target,fl=t.files&&t.files[0];if(!fl)return;var i=+t.dataset.i;$("#be").hidden=true;$("#bsave").disabled=true;toast("Uploading photo…");
+  upload(fl,"c_fill,w_1400,h_788,q_auto,f_auto").then(function(u){bs[i]=u;drawBan();toast("Photo ready. Tap Save banner.")})
+  .catch(function(er){$("#be").hidden=false;$("#be").textContent="Photo upload failed: "+er.message;t.value=""})
+  .then(function(){$("#bsave").disabled=false})};
+$("#bslots").onclick=function(e){if(e.target.dataset.r!=null){bs[+e.target.dataset.r]="";drawBan()}};
+$("#bsave").onclick=function(){var b=this;b.disabled=true;$("#be").hidden=true;
+  bdoc.set({slides:bs.filter(Boolean)}).then(function(){toast("Banner saved")})
+  .catch(function(){$("#be").hidden=false;$("#be").textContent="Could not save. Add the settings rule in Firestore (see ADMIN-SETUP.md)."})
+  .then(function(){b.disabled=false})};
+
+/* ===== stock report ===== */
+function rows(){var f=$("#rf").value;return items.filter(function(p){var o=p.stock===false||(p.qty!=null&&p.qty<=0),l=p.qty!=null&&p.qty>0&&p.qty<=5;return f==="out"?o:f==="low"?l:true})
+  .sort(function(x,y){return CATS.indexOf(x.cat)-CATS.indexOf(y.cat)||(x.order||0)-(y.order||0)})}
+function status(p){return p.stock===false||(p.qty!=null&&p.qty<=0)?"Out of stock":(p.qty!=null&&p.qty<=5?"Low":"In stock")}
+function report(){var tot=items.length,out=0,low=0,val=0,units=0;
+  items.forEach(function(p){var s=status(p);if(s==="Out of stock")out++;if(s==="Low")low++;if(p.qty>0){units+=p.qty;val+=p.qty*p.price}});
+  $("#stats").innerHTML=[["Products",tot],["In stock",tot-out],["Out of stock",out],["Low stock",low],["Units in stock",units],["Stock value","৳"+val.toLocaleString("en-IN")]]
+   .map(function(s){return'<div class="stat">'+s[0]+'<b>'+s[1]+'</b></div>'}).join("");
+  var h='<tr><th>Product</th><th>Qty</th><th>Status</th><th>Value</th></tr>',last="";
+  rows().forEach(function(p){if(p.cat!==last){last=p.cat;h+='<tr class="cat"><td colspan="4">'+esc(p.cat)+'</td></tr>'}
+    var s=status(p);h+='<tr><td>'+esc(p.name)+' <small>'+esc(p.size)+'</small></td><td><input type="number" min="0" data-q="'+p.id+'" value="'+(p.qty==null?"":p.qty)+'" placeholder="—"></td><td class="'+(s==="Low"?"low":s==="Out of stock"?"out":"")+'">'+s+'</td><td>'+(p.qty>0?"৳"+(p.qty*p.price).toLocaleString("en-IN"):"—")+'</td></tr>'});
+  $("#rt").innerHTML=h}
+$("#rf").onchange=report;
+$("#rt").onchange=function(e){var id=e.target.dataset.q;if(!id)return;var p=items.filter(function(x){return x.id===id})[0],v=e.target.value===""?null:Math.max(0,Number(e.target.value));
+  var u={qty:v};if(v!==null)u.stock=v>0;
+  col.doc(id).update(u).then(function(){p.qty=v;if(v!==null)p.stock=v>0;toast("Stock updated");report()}).catch(function(){toast("Could not update. Are you signed in?")})};
+$("#prt").onclick=function(){window.print()};
+$("#csv").onclick=function(){var c=[["Category","Product","Size","Price","Qty","Status","Value"]].concat(rows().map(function(p){return[p.cat,p.name,p.size,p.price,p.qty==null?"":p.qty,status(p),p.qty>0?p.qty*p.price:""]}));
+  var t="\ufeff"+c.map(function(r){return r.map(function(x){return'"'+String(x==null?"":x).replace(/"/g,'""')+'"'}).join(",")}).join("\r\n");
+  var l=document.createElement("a");l.href=URL.createObjectURL(new Blob([t],{type:"text/csv"}));l.download="rizq-stock-report-"+new Date().toISOString().slice(0,10)+".csv";l.click()};
 </script></body></html>

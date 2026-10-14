@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>RIZQ | রিজক — Honey, Nuts, Mustard Oil & Gur, Delivered Across Bangladesh</title>
 <meta name="description" content="RIZQ: pure honey, nuts, kachi ghani mustard oil, akher gur and khejurer gur. Cash on delivery across Bangladesh. Order on WhatsApp.">
+<meta name="theme-color" content="#3a1608">
+<meta property="og:type" content="website"><meta property="og:title" content="RIZQ | রিজক — Honey, Nuts, Mustard Oil &amp; Gur"><meta property="og:description" content="Pure honey, nuts, kachi ghani mustard oil and gur. Cash on delivery across Bangladesh.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Store","name":"RIZQ","telephone":["+8801903770516","+8801921361579"],"sameAs":["https://www.facebook.com/profile.php?id=61595166790787"],"address":{"@type":"PostalAddress","streetAddress":"426/02 West Shewrapara, Avokash Bhaban, 3rd Floor","addressLocality":"Dhaka","addressCountry":"BD"}}</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%233a1608%22/><path d=%22M30 80V20h22a17 17 0 0 1 0 34H30M52 54l20 26%22 fill=%22none%22 stroke=%22%23ffdb4d%22 stroke-width=%2214%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@500;600;700;800&family=Hind+Siliguri:wght@400;500;700&display=swap">
 <style>
@@ -38,6 +41,13 @@ nav.m a:hover{border-color:var(--gd)}
 .btn{min-height:44px;padding:0 20px;font-size:16px;border:2px solid var(--cream);background:rgba(255,255,255,.16);color:var(--cream)}
 .btn.p{background:var(--gd);color:var(--ink);border-color:var(--gd)}
 .hero{position:relative;overflow:hidden;padding:52px 0 150px;text-align:center}
+#banner{max-width:1100px;margin:16px auto 0;padding:0 14px}
+.bs{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:20px;scrollbar-width:none;box-shadow:0 6px 0 rgba(184,58,22,.45);-webkit-overflow-scrolling:touch}
+.bs::-webkit-scrollbar{display:none}
+.bs img{flex:0 0 100%;width:100%;aspect-ratio:16/9;max-height:440px;object-fit:cover;scroll-snap-align:center;display:block}
+.bd{display:flex;justify-content:center;gap:8px;margin-top:14px}
+.bd i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.55);transition:.2s}
+.bd i.on{background:var(--yl);width:24px;border-radius:6px}
 .chip{display:inline-block;background:var(--yl);color:var(--ink);border-radius:10px;padding:2px 22px;font-weight:700;font-size:clamp(18px,3vw,26px);margin-bottom:6px}
 .hero h1{margin:0;font:800 clamp(90px,24vw,240px)/.9 "Baloo Da 2",sans-serif;letter-spacing:.01em}
 .bn{font:700 clamp(22px,4vw,38px) "Hind Siliguri",sans-serif;margin:6px 0}
@@ -144,6 +154,7 @@ footer b{font:800 34px "Baloo Da 2",sans-serif;color:var(--gd)}
 <div class="notice">Cash on delivery all over Bangladesh. Free delivery over ৳1500.</div>
 
 <main>
+<section id="banner" hidden aria-label="Offers"></section>
 <section class="hero" id="home">
   <div class="hart ha"><svg viewBox="-10 -4 120 128" aria-hidden="true"><use href="#art-honey"/></svg></div>
   <div class="hart hb"><svg viewBox="-10 -4 120 128" aria-hidden="true"><use href="#art-oil"/></svg></div>
@@ -195,12 +206,18 @@ footer b{font:800 34px "Baloo Da 2",sans-serif;color:var(--gd)}
 </section>
 
 <section class="wrap sec" id="contact">
+  <div class="two">
   <div class="card y"><h2 class="ttl s" style="color:var(--ink)">Let's talk</h2><p>Questions about a product or an order? We reply fastest on WhatsApp.</p>
-  <div class="btns" style="justify-content:flex-start;margin-top:12px"><a class="cta whatsapp" href="#" target="_blank" rel="noopener">Chat on WhatsApp</a><a class="btn" id="callLink" href="#" style="background:var(--dk)">Call us</a></div></div>
+  <div class="btns" style="justify-content:flex-start;margin-top:12px"><a class="cta whatsapp" href="#" target="_blank" rel="noopener">WhatsApp 01903-770516</a><a class="cta" id="wa2" href="#" target="_blank" rel="noopener">WhatsApp 01921-361579</a></div>
+  <div class="btns" style="justify-content:flex-start;margin-top:12px"><a class="btn" id="callLink" href="#" style="background:var(--dk)">Call 01903-770516</a><a class="btn" id="callLink2" href="#" style="background:var(--dk)">Call 01921-361579</a><a class="btn" href="https://www.facebook.com/profile.php?id=61595166790787" target="_blank" rel="noopener" style="background:var(--dk)">Facebook</a></div></div>
+  <div class="card y"><h2 class="ttl s" style="color:var(--ink)">Find us</h2><p>426/02 West Shewrapara,<br>Avokash Bhaban, 3rd Floor,<br>Dhaka, Bangladesh</p>
+  <iframe title="RIZQ location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=426%2F02%20West%20Shewrapara%2C%20Dhaka%2C%20Bangladesh&amp;output=embed" style="width:100%;height:200px;border:0;border-radius:14px;margin:4px 0 12px"></iframe>
+  <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=426%2F02%20West%20Shewrapara%2C%20Dhaka%2C%20Bangladesh" target="_blank" rel="noopener" style="background:var(--dk)">Open in Google Maps</a></div>
+  </div>
 </section>
 </main>
 
-<footer><a href="#home" class="logo" aria-label="RIZQ"><svg viewBox="0 0 285 105"><use href="#logo"/></svg></a><p>Honey, nuts, mustard oil &amp; gur. Delivered across Bangladesh.</p><p>© <span id="yr"></span> RIZQ. All rights reserved.</p></footer>
+<footer><a href="#home" class="logo" aria-label="RIZQ"><svg viewBox="0 0 285 105"><use href="#logo"/></svg></a><p>Honey, nuts, mustard oil &amp; gur. Delivered across Bangladesh.</p><p>426/02 West Shewrapara, Avokash Bhaban, 3rd Floor, Dhaka, Bangladesh</p><p><a href="tel:+8801903770516" style="color:var(--cream)">01903-770516</a> · <a href="tel:+8801921361579" style="color:var(--cream)">01921-361579</a> · <a href="https://www.facebook.com/profile.php?id=61595166790787" target="_blank" rel="noopener" style="color:var(--cream)">Facebook</a></p><p>© <span id="yr"></span> RIZQ. All rights reserved.</p></footer>
 
 <div id="cbar"><button class="cb" id="cbar-btn"><div class="ct"><b id="cbN">0 items</b><small id="cbT">৳0</small></div><span class="cta">View cart</span></button></div>
 <div class="bk" id="bk"></div>
@@ -238,6 +255,7 @@ footer b{font:800 34px "Baloo Da 2",sans-serif;color:var(--gd)}
 <script src="firebase-config.js"></script>
 <script>
 /* ===== SETTINGS ===== */
+var WA_NUMBER2="8801921361579";           /* second number (shown in Contact) */
 var WA_NUMBER="8801903770516";            /* WhatsApp number, with country code, no + */
 var RATE={dhaka:70,outside:130};          /* delivery charge */
 var FREE_OVER=1500;                       /* free delivery over this subtotal */
@@ -354,12 +372,20 @@ $("#f").addEventListener("submit",function(e){
 
 /* ===== INIT ===== */
 document.querySelectorAll("a.whatsapp").forEach(function(a){a.href=wa("Hello RIZQ, I have a question.")});
-$("#callLink").href="tel:+"+WA_NUMBER;
+$("#callLink").href="tel:+"+WA_NUMBER;$("#callLink2").href="tel:+"+WA_NUMBER2;$("#wa2").href="https://wa.me/"+WA_NUMBER2+"?text="+encodeURIComponent("Hello RIZQ, I have a question.");
 $("#rD").textContent=RATE.dhaka;$("#rO").textContent=RATE.outside;$("#yr").textContent=new Date().getFullYear();
 function boot(){Object.keys(cart).forEach(function(k){if(!P(k))delete cart[k]});wish=wish.filter(function(i){return P(i)});chips();render();save()}
+function banner(sl){if(!sl||!sl.length)return;var b=$("#banner");
+  b.innerHTML='<div class="bs">'+sl.map(function(u){return'<img src="'+String(u).replace(/"/g,"%22")+'" alt="RIZQ" loading="lazy">'}).join("")+'</div>'+(sl.length>1?'<div class="bd">'+sl.map(function(){return"<i></i>"}).join("")+'</div>':"");
+  b.hidden=false;var bs=b.querySelector(".bs"),dots=b.querySelectorAll(".bd i"),cur=0,pause=0;
+  function mark(){cur=Math.round(bs.scrollLeft/bs.clientWidth);dots.forEach(function(d,i){d.classList.toggle("on",i===cur)})}
+  mark();bs.addEventListener("scroll",mark,{passive:true});
+  bs.addEventListener("pointerdown",function(){pause=Date.now()+8000});
+  if(sl.length>1&&!matchMedia("(prefers-reduced-motion:reduce)").matches)setInterval(function(){if(Date.now()<pause||document.hidden)return;bs.scrollTo({left:((cur+1)%sl.length)*bs.clientWidth,behavior:"smooth"})},4500)}
 var fc=window.RIZQ_FIREBASE;
 if(fc&&fc.apiKey&&fc.apiKey.indexOf("PASTE")!==0&&window.firebase){
   firebase.initializeApp(fc);
+  firebase.firestore().doc("settings/hero").get().then(function(d){if(d.exists)banner(d.data().slides)}).catch(function(){});
   firebase.firestore().collection("products").get().then(function(sn){var a=[];sn.forEach(function(d){var x=d.data();x.id=d.id;a.push(x)});
     if(a.length){a.sort(function(m,n){return(m.order||0)-(n.order||0)});PRODUCTS=a}boot()}).catch(boot)
 }else boot();

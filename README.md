@@ -11,7 +11,8 @@ firebase-config.js   your Firebase + Cloudinary keys (see ADMIN-SETUP.md)
 
 ## Settings (top of the `<script>` in index.html)
 ```js
-var WA_NUMBER="8801903770516";   // country code, no +
+var WA_NUMBER="8801903770516";   // orders go here (country code, no +)
+var WA_NUMBER2="8801921361579";  // second number, shown in Contact
 var RATE={dhaka:70,outside:130}; // delivery charge
 var FREE_OVER=1500;              // free delivery above this subtotal
 ```
